@@ -37,6 +37,16 @@ const TEMPLATE_APP_LINK_ICONS = `
 </div>
 `;
 
+const TEMPLATE_APP_LINK_GALLERY_ELEMENT = `
+<button
+	id="title"
+	@click="$emit('click', title)"
+	style="background-image:backgroundImage"
+>
+	{{ title }}
+</button>
+`;
+
 const COMPONENT_APP_HEADER = {
 	template: TEMPLATE_APP_HEADER,
 	props: {
@@ -50,10 +60,23 @@ const COMPONENT_APP_FOOTER = {
 
 const COMPONENT_APP_LINK_ICONS = {
 	template: TEMPLATE_APP_LINK_ICONS,
-}
+};
+
+const COMPONENT_APP_LINK_GALLERY_ELEMENT = {
+	template: TEMPLATE_APP_LINK_GALLERY_ELEMENT,
+	props: {
+		title: String,
+	},
+	computed: {
+		backgroundImage() {
+			return `images/gallery/${this.title}.jpg`;
+		},
+	},
+};
 
 export {
 	COMPONENT_APP_HEADER,
 	COMPONENT_APP_FOOTER,
 	COMPONENT_APP_LINK_ICONS,
+	COMPONENT_APP_LINK_GALLERY_ELEMENT,
 }
