@@ -4,17 +4,37 @@ const TEMPLATE_APP_HEADER = `
 </section>
 `;
 
-const TEMPLATE_APP_MAIN = `
-<section class="main">
-	<h2>{{ title }}</h2>
-</section>
-`;
-
 const TEMPLATE_APP_FOOTER = `
 <section class="footer">
 	<p>&copy; Lightling 2014-2021. All Rights Reserved.</p>
 	<p><a href="#">Back To Top</a></p>
 </section>
+`;
+
+const TEMPLATE_APP_LINK_ICONS = `
+<div class="icons">
+	<a href='https://www.redbubble.com/people/lightling/shop?asc=u'>
+		<img
+			src='images/places/rb.svg'
+			alt='red bubble icon'
+			title='RedBubble'
+		/>
+	</a>
+	<a href='https://www.deviantart.com/xlightling'>
+		<img
+			src='images/places/da.svg'
+			alt='deviant art icon'
+			title='DeviantArt'
+		/>
+	</a>
+	<a href='https://www.furaffinity.net/user/lightling/'>
+		<img
+			src='images/places/fa.svg'
+			alt='fur affinity icon'
+			title='FurAffinity'
+		/>
+	</a>
+</div>
 `;
 
 const COMPONENT_APP_HEADER = {
@@ -24,22 +44,16 @@ const COMPONENT_APP_HEADER = {
 	},
 };
 
-const COMPONENT_APP_MAIN = {
-	template: TEMPLATE_APP_MAIN,
-	props: {
-		title: String,
-	},
-};
-
 const COMPONENT_APP_FOOTER = {
 	template: TEMPLATE_APP_FOOTER,
-	props: {
-		
-	},
 };
+
+const COMPONENT_APP_LINK_ICONS = {
+	template: TEMPLATE_APP_LINK_ICONS,
+}
 
 export {
 	COMPONENT_APP_HEADER,
-	COMPONENT_APP_MAIN,
 	COMPONENT_APP_FOOTER,
+	COMPONENT_APP_LINK_ICONS,
 }
