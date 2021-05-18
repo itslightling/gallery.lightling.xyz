@@ -34,9 +34,31 @@
 				<div class="gallery-links">
 					<app-gallery-element
 						title="traditional"
-						@click="setAndGo">
+						@click="setAndGo"
+					>
+					</app-gallery-element>
+					<app-gallery-element
+						title="digital"
+						@click="setAndWarn"
+					>
+					</app-gallery-element>
+					<app-gallery-element
+						title="photography"
+						@click="setAndGo"
+					>
+					</app-gallery-element>
+					<app-gallery-element
+						title="anthro"
+						@click="setAndWarn"
+					>
 					</app-gallery-element>
 				</div>
+				<app-gallery-warning
+					@disable="disablePopup"
+					@acknowledge="goToGallery"
+					v-if="popupActive"
+				>
+				</app-gallery-warning>
 			</section>
 		</section>
 		<app-footer>

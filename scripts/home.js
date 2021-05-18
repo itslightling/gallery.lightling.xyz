@@ -8,9 +8,11 @@ window.onload = function(e) {
 			'app-footer': Components.COMPONENT_APP_FOOTER,
 			'app-icons': Components.COMPONENT_APP_LINK_ICONS,
 			'app-gallery-element': Components.COMPONENT_APP_LINK_GALLERY_ELEMENT,
+			'app-gallery-warning': Components.COMPONENT_APP_LINK_POPUP_WARNING,
 		},
 		data: {
 			currentTarget: "",
+			popupActive: false,
 		},
 		methods: {
 			goToGallery() {
@@ -35,6 +37,10 @@ window.onload = function(e) {
 			},
 			setAndWarn(title) {
 				this.currentTarget = title;
+				this.popupActive = true;
+			},
+			disablePopup() {
+				this.popupActive = false;
 			}
 		},
 	});
