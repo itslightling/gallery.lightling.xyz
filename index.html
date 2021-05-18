@@ -4,16 +4,20 @@
 <head>
 	<title>Gallery | Lightling</title>
 	
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	
 	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 	<script type="module" src="scripts/home.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css"/>
+	<link rel="stylesheet" type="text/css" href="styles/layout.css"/>
+	<link rel="stylesheet" type="text/css" href="styles/theme-art.css"/>
 </head>
 
 <body>
 	<div id="app">
-		<app-header title="Lightling Gallery">
+		<app-header title="LightGallery">
 		</app-header>
 		<section class="main">
 			<h2>Home Content</h2>
@@ -31,6 +35,7 @@
 				<p>Music and art are hobbies (for me, that is). My main field of work is in game development. I'm currently a full-time student. I may periodically be inactive with art/music to work on projects or schoolwork. I may eventually set up Patreon for my development work, and I do have stuff available as PWYW on <a href="https://goldenwere.itch.io/">itch.io</a>.</p>
 			</section>
 			<section id="gallery">
+				<h3>Gallery</h3>
 				<div class="gallery-links">
 					<app-gallery-element
 						title="traditional"

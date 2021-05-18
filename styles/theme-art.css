@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300;500;700&display=swap');
+
+html {
+	background-color: #eb9289ff;
+	font-family: 'Dosis', sans-serif;
+	font-size: 150%;
+}
+
+.header, .footer {
+	background-color: #351431ff;
+	color: #ffe0e8ff;
+}
+
+.main {
+	background-color: #ffe0e8ff;
+	color: #351431ff;
+}

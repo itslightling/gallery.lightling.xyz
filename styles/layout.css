@@ -1,0 +1,42 @@
+#app {
+	position: relative;
+	width: 75vw;
+	max-width: 196rem;
+	margin: auto;
+}
+
+.header,
+.footer,
+.main {
+	position: relative;
+	padding: 2rem 8rem;
+}
+
+.header,
+.footer {
+	text-align: center;
+	margin: 0;
+}
+
+.header h1,
+.footer p {
+	margin: 0;
+}
+
+.main h2 {
+	display: none;
+}
+
+.icons img {
+	width: 100%;
+	height: 100%;
+}
+
+.icons {
+	display: flex;
+	grid-gap: 2rem;
+}
+
+.icons > * {
+	flex: 1 1 auto;
+}
