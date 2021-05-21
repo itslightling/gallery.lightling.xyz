@@ -19,7 +19,36 @@
 		<app-header title="Lightling Gallery / Digital">
 		</app-header>
 		<section class="main">
-			<app-gallery sections="galleryData"></app-gallery>
+			<h2>Digital Gallery</h2>
+			<section class="gallery-nav">
+				<h3>Navigation</h3>
+				<ul>
+					<li v-for="section in galleryData">
+						<a :href="'#' + section.id">{{ section.id }}</a>
+						<ul v-if="section.subsections.length > 0">
+							<li v-for="subsection in section.subsections">
+								<a :href="'#' + subsection.id">{{ subsection.id }}</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section class="gallery">
+				<h3>Gallery</h3>
+				<section class="gallery-section" v-for="section in galleryData">
+					<h4 :id="section.id">{{ section.id }}</h4>
+					<section class="gallery-subsection" v-for="subsection in section.subsections">
+						<h5 :id="subsection.id">{{ subsection.id }}</h5>
+						<gallery-element
+							v-for="element in subsection.content"
+							:url="element.url"
+							:title="element.title"
+							:img="element.img"
+						>
+						</gallery-element>
+					</section>
+				</section>
+			</section>
 		</section>
 		<app-footer>
 		</app-footer>

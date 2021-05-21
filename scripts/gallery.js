@@ -11,7 +11,7 @@ window.onload = function(e) {
 			components: {
 				'app-header': Components.COMPONENT_APP_HEADER,
 				'app-footer': Components.COMPONENT_APP_FOOTER,
-				'app-gallery': Components.COMPONENT_APP_GALLERY,
+				'gallery-element': Components.COMPONENT_APP_GALLERY_ELEMENT,
 			},
 			data: {
 				galleryData: fetched.sections,

@@ -58,22 +58,18 @@ const TEMPLATE_APP_LINK_POPUP_WARNING = `
 	<button
 		@click="$emit('acknowledge')"
 	>
-		Acknowledge and Continute
+		Acknowledge and Continue
 	</button>
 </div>
-`;
-
-const TEMPLATE_APP_GALLERY = `
-
 `;
 
 const TEMPLATE_APP_GALLERY_ELEMENT = `
 <div class="gallery-element">
 	<a
 		href="url"
-		:style="{ background-image: url(img); }"
+		:style="{ backgroundImage: imageURL }"
 	>
-		title
+		{{ title }}
 	</a>
 </div>
 `;
@@ -111,15 +107,10 @@ const COMPONENT_APP_GALLERY_ELEMENT = {
 		img: String,
 		title: String,
 	},
-};
-
-const COMPONENT_APP_GALLERY = {
-	template: TEMPLATE_APP_GALLERY,
-	components: {
-		'gallery-element': COMPONENT_APP_GALLERY_ELEMENT,
-	},
-	props: {
-		sections: Array,
+	computed: {
+		imageURL() {
+			return `url(${this.img})`;
+		},
 	},
 };
 
@@ -129,6 +120,5 @@ export {
 	COMPONENT_APP_LINK_ICONS,
 	COMPONENT_APP_LINK_GALLERY_ELEMENT,
 	COMPONENT_APP_LINK_POPUP_WARNING,
-	COMPONENT_APP_GALLERY,
 	COMPONENT_APP_GALLERY_ELEMENT,
 }
