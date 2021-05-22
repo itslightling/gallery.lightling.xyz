@@ -66,10 +66,10 @@ const TEMPLATE_APP_LINK_POPUP_WARNING = `
 const TEMPLATE_APP_GALLERY_ELEMENT = `
 <div class="gallery-element">
 	<a
-		href="url"
+		:href="url"
 		:style="{ backgroundImage: imageURL }"
 	>
-		{{ title }}
+		<span>{{ title }}</span>
 	</a>
 </div>
 `;

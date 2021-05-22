@@ -40,3 +40,44 @@
 .icons > * {
 	flex: 1 1 auto;
 }
+
+.gallery-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 0.25rem;
+}
+
+.gallery-element {
+	height: 8rem;
+}
+
+.gallery-element > a {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	line-height: 100%;
+	display: block;
+	position: relative;
+}
+
+.gallery-element > a > span {
+	position: absolute;
+	text-align: center;
+	bottom: 1rem;
+	left: 0;
+	right: 0;
+	padding: 0.5rem;
+}
+
+@media screen and (max-aspect-ratio: 3/2) {
+	.gallery-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media screen and (max-aspect-ratio: 2/3) {
+	.gallery-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}

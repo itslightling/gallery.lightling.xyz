@@ -12,6 +12,10 @@
 		const DATA_PATH = "../data/digital.json";
 	</script>
 	<script type="module" src="../scripts/gallery.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css"/>
+	<link rel="stylesheet" type="text/css" href="../styles/layout.css"/>
+	<link rel="stylesheet" type="text/css" href="../styles/theme-art.css"/>
 </head>
 
 <body>
@@ -39,13 +43,15 @@
 					<h4 :id="section.id">{{ section.id }}</h4>
 					<section class="gallery-subsection" v-for="subsection in section.subsections">
 						<h5 :id="subsection.id">{{ subsection.id }}</h5>
-						<gallery-element
-							v-for="element in subsection.content"
-							:url="element.url"
-							:title="element.title"
-							:img="element.img"
-						>
-						</gallery-element>
+						<div class="gallery-grid">
+							<gallery-element
+								v-for="element in subsection.content"
+								:url="element.url"
+								:title="element.title"
+								:img="element.img"
+							>
+							</gallery-element>
+						</div>
 					</section>
 				</section>
 			</section>
