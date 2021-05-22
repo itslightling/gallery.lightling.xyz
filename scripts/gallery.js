@@ -12,6 +12,7 @@ window.onload = function(e) {
 				'app-header': Components.COMPONENT_APP_HEADER,
 				'app-footer': Components.COMPONENT_APP_FOOTER,
 				'gallery-element': Components.COMPONENT_APP_GALLERY_ELEMENT,
+				'content-indicators': Components.COMPONENT_APP_GALLERY_CONTENT_INDICATORS,
 			},
 			data: {
 				galleryData: fetched.sections,

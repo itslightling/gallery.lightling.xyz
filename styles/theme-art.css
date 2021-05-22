@@ -48,15 +48,20 @@ a:hover:after {
 	transform: scaleX(1);
 }
 
-.color-code.cc-mature, .cc-mature::before {
+.footer a:link { color: #7697a7; }
+.footer a:focus, .footer a:hover { color: #e68e84; }
+.footer a:focus { outline-color: #e68e84; }
+.footer a:active { color: #993366; }
+
+.color-code.cc-mature {
 	background-color: rgb(255,159,0);
 }
 
-.color-code.cc-sfw, .cc-sfw::before {
+.color-code.cc-sfw {
 	background-color: rgb(0, 129, 255);
 }
 
-.color-code.cc-adult, .cc-adult::before {
+.color-code.cc-adult {
 	background-color: rgb(155,0,100);
 }
 

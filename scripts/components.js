@@ -70,7 +70,22 @@ const TEMPLATE_APP_GALLERY_ELEMENT = `
 		:style="{ backgroundImage: imageURL }"
 	>
 		<span>{{ title }}</span>
+		<div
+			v-if="indicator !== undefined"
+			:class="colorCodeClass"
+		></div>
 	</a>
+</div>
+`;
+
+const TEMPLATE_APP_GALLERY_CONTENT_INDICATORS = `
+<div class="content-level">
+	<h4>Content Level</h4>
+	<ul>
+		<li><div class="color-code cc-sfw"></div>: SFW (Non-mature content)</li>
+		<li><div class="color-code cc-mature"></div>: Mature (Nonsexual Content)</li>
+		<li><div class="color-code cc-adult"></div>: Adult (Sexual Content)</li>
+	</ul>
 </div>
 `;
 
@@ -106,13 +121,25 @@ const COMPONENT_APP_GALLERY_ELEMENT = {
 		url: String,
 		img: String,
 		title: String,
+		indicator: Number,
 	},
 	computed: {
 		imageURL() {
 			return `url(${this.img})`;
 		},
+		colorCodeClass() {
+			switch(Number(this.indicator)) {
+				case 0: return "color-code cc-sfw";
+				case 1: return "color-code cc-mature";
+				case 2: return "color-code cc-adult";
+			}
+		}
 	},
 };
+
+const COMPONENT_APP_GALLERY_CONTENT_INDICATORS = {
+	template: TEMPLATE_APP_GALLERY_CONTENT_INDICATORS,
+}
 
 export {
 	COMPONENT_APP_HEADER,
@@ -121,4 +148,5 @@ export {
 	COMPONENT_APP_LINK_GALLERY_ELEMENT,
 	COMPONENT_APP_LINK_POPUP_WARNING,
 	COMPONENT_APP_GALLERY_ELEMENT,
+	COMPONENT_APP_GALLERY_CONTENT_INDICATORS,
 }
