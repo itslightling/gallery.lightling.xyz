@@ -17,6 +17,14 @@ window.onload = function(e) {
 			data: {
 				galleryData: fetched.sections,
 			},
+			methods: {
+				toAnchor(str) {
+					return str.replace(' ','_');
+				},
+				toAnchorLink(str) {
+					return '#' + this.toAnchor(str);
+				},
+			},
 		});
 	});
 };
