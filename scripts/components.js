@@ -54,6 +54,7 @@ const TEMPLATE_APP_LINK_POPUP_WARNING = `
 	<div class="buttons">
 		<button
 			@click="$emit('disable')"
+			v-focus
 		>
 			Go Back
 		</button>

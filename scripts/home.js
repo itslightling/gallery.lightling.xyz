@@ -1,6 +1,11 @@
 import * as Components from './components.js';
 
 window.onload = function(e) {
+	Vue.directive('focus', {
+		inserted: function (el) {
+			el.focus();
+		}
+	});
 	new Vue({
 		el: '#app',
 		components: {
