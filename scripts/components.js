@@ -41,6 +41,7 @@ const TEMPLATE_APP_LINK_GALLERY_ELEMENT = `
 <button
 	id="title"
 	@click="$emit('click', title)"
+	:style="{ backgroundImage: imageURL }"
 >
 	{{ title }}
 </button>
@@ -50,16 +51,18 @@ const TEMPLATE_APP_LINK_POPUP_WARNING = `
 <div class="warning">
 	<h4>Warning!</h4>
 	<p>This gallery contains NSFW mature/adult material. Only browse if you are 18+ of age.</p>
-	<button
-		@click="$emit('disable')"
-	>
-		Go Back
-	</button>
-	<button
-		@click="$emit('acknowledge')"
-	>
-		Acknowledge and Continue
-	</button>
+	<div class="buttons">
+		<button
+			@click="$emit('disable')"
+		>
+			Go Back
+		</button>
+		<button
+			@click="$emit('acknowledge')"
+		>
+			Acknowledge and Continue
+		</button>
+	</div>
 </div>
 `;
 
@@ -108,6 +111,17 @@ const COMPONENT_APP_LINK_GALLERY_ELEMENT = {
 	template: TEMPLATE_APP_LINK_GALLERY_ELEMENT,
 	props: {
 		title: String,
+	},
+	computed: {
+		imageURL() {
+			let str = "url(images/home/";
+			switch (this.title) {
+				case "traditional": return str + "traditional.jpg)";
+				case "digital": return str + "digital.jpg)";
+				case "photography": return str + "photography.jpg)";
+				case "anthro": return str + "anthro.jpg)";
+			}
+		},
 	},
 };
 
