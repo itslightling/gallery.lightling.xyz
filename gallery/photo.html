@@ -2,21 +2,60 @@
 <html lang=en>
 
 <head>
-	<title>Photo | Gallery | Lightling</title>
+	<title>Photography | Gallery | Lightling</title>
 	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+	<script>
+		const DATA_PATH = "../data/photo.json";
+	</script>
 	<script type="module" src="../scripts/gallery.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css"/>
+	<link rel="stylesheet" type="text/css" href="../styles/layout.css"/>
+	<link rel="stylesheet" type="text/css" href="../styles/theme-art.css"/>
 </head>
 
 <body>
 	<div id="app">
-		<app-header title="Lightling Gallery / Photo">
+		<app-header title="Lightling Gallery / Photography">
 		</app-header>
 		<section class="main">
-
+			<h2>Photography Gallery</h2>
+			<section class="gallery-nav">
+				<h3>Navigation</h3>
+				<ul>
+					<li v-for="section in galleryData">
+						<a :href="toAnchorLink(section.id)">{{ section.id }}</a>
+						<ul v-if="section.subsections.length > 0">
+							<li v-for="subsection in section.subsections">
+								<a :href="toAnchorLink(section.id + '_' + subsection.id)">{{ subsection.id }}</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section class="gallery">
+				<h3>Gallery</h3>
+				<section class="gallery-section" v-for="section in galleryData">
+					<h4 :id="toAnchor(section.id)">{{ section.id }}</h4>
+					<section class="gallery-subsection" v-for="subsection in section.subsections">
+						<h5 :id="toAnchor(section.id + '_' + subsection.id)">{{ subsection.id }}</h5>
+						<div class="gallery-grid">
+							<gallery-element
+								v-for="element in subsection.content"
+								:url="element.url"
+								:title="element.title"
+								:img="element.img"
+								:indicator="element.indicator"
+							>
+							</gallery-element>
+						</div>
+					</section>
+				</section>
+			</section>
 		</section>
 		<app-footer>
 		</app-footer>
