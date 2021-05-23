@@ -23,16 +23,16 @@ window.onload = function(e) {
 			goToGallery() {
 				switch(this.currentTarget) {
 					case "traditional":
-						console.log("traditional");
+						location.href = "gallery/traditional";
 						break;
 					case "digital":
-						console.log("digital");
+						location.href = "gallery/digital";
 						break;
 					case "photography":
-						console.log("photo");
+						location.href = "gallery/photo";
 						break;
 					case "anthro":
-						console.log("anthro");
+						location.href = "gallery/anthro";
 						break;
 				}
 			},
