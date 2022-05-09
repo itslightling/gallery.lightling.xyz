@@ -1,5 +1,5 @@
 <template>
-  <section class="footer">
+  <footer>
     <p>
       &copy; Lightling 2014-2022. All Rights Reserved.
     </p>
@@ -8,8 +8,21 @@
         Back To Top
       </a>
     </p>
-  </section>
+  </footer>
 </template>
+
+<style lang="sass" scoped>
+@import 'style/variables.sass'
+
+footer
+  background-color: $brand-dark-a
+  p
+    color: $brand-bright-a
+  a
+    color: $brand-medium-a
+    &:after
+      background-color: $brand-medium-a
+</style>
 
 <script>
 import { defineComponent } from '@vue/composition-api'
