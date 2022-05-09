@@ -7,7 +7,7 @@
       <section
         id="about"
       >
-        <h3>About</h3>
+        <h2>About</h2>
         <p
           class="txt-lg"
         >
@@ -50,7 +50,7 @@
         </p>
       </section>
       <section id="gallery">
-        <h3>Gallery</h3>
+        <h2>Gallery</h2>
         <GalleryLink
           element="Traditional"
           @click="setAndGo('traditional')"
@@ -78,6 +78,17 @@
     />
   </div>
 </template>
+
+<style lang="sass" scoped>
+@import 'style/variables.sass'
+
+main
+  background-color: #e8bbb0
+  padding: 2rem
+  section
+    max-width: 32rem
+    margin: auto
+</style>
 
 <script lang="ts" setup>
 import Vue from 'vue';
