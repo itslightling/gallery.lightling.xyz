@@ -1,26 +1,37 @@
 <template>
   <button
-    :id="title"
+    :id="element"
     :style="{ backgroundImage: imageURL }"
-    @click="$emit('click', title)"
+    @click="$emit('click', element)"
   >
-    {{ title }}
+    {{ element }}
   </button>
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api';
+import Vue from 'vue';
+import VueCompositionAPI, { defineComponent, ref, computed } from '@vue/composition-api';
+
+Vue.use(VueCompositionAPI);
 
 export default defineComponent({
+  name: 'GalleryLink',
   props: {
-    title: {
+    element: {
       type: String,
       required: true,
     },
-    imageURL: {
-      type: String,
-      required: true,
-    },
+  },
+  setup(props: any) {
+    const element = ref(props.element);
+
+    const imageURL = computed(() => {
+      return `url(/images/${element})`;
+    });
+
+    return {
+      imageURL,
+    };
   },
 })
 </script>

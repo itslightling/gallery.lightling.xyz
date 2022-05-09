@@ -5,7 +5,7 @@
       :style="{ backgroundImage: imageURL }"
     >
       <span>
-        {{ title }}
+        {{ element }}
       </span>
       <div
         v-if="indicator !== undefined"
@@ -16,21 +16,16 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, ref, computed } from "@vue/composition-api";
+import Vue from 'vue';
+import VueCompositionAPI, { defineComponent, ref, computed } from "@vue/composition-api";
 import Indicator from 'types/Indicator';
+
+Vue.use(VueCompositionAPI);
 
 export default defineComponent({
   name: 'GalleryElement',
   props: {
-    url: {
-      type: String,
-      required: true,
-    },
-    img: {
-      type: String,
-      required: true,
-    },
-    title: {
+    element: {
       type: String,
       required: true,
     },
@@ -40,11 +35,15 @@ export default defineComponent({
     },
   },
   setup(props: any) {
-    const img = ref(props.img);
     const indicator = ref(props.indicator);
+    const element = ref(props.element);
+
+    const url = computed(() => {
+      return `/${element}`;
+    });
 
     const imageURL = computed(() => {
-      return `url(${img})`;
+      return `url(/images/${element})`;
     });
 
     const colorCodeClass = computed(() => {
@@ -60,9 +59,10 @@ export default defineComponent({
     });
 
     return {
+      url,
       imageURL,
       colorCodeClass,
-    }
+    };
   },
 });
 </script>
