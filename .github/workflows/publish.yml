@@ -49,8 +49,9 @@ jobs:
         run: npm run generate
 
       - name: Publish to surge
-        uses: bevry-actions/surge@v1.0.3
+        uses: ./.github/workflows/actions/surge
         with:
           surgeLogin: ${{ secrets.SURGE_LOGIN }}
           surgeToken: ${{ secrets.SURGE_TOKEN }}
           surgeProject: 'dist'
+          surgeURL: 'lightgallery.surge.sh'
