@@ -42,33 +42,25 @@
           wish to support my art (or my other work), please consider using my
           <a
             href="https://ko-fi.com/lightling"
-          >
-            Ko-Fi
-          </a>
+          >Ko-Fi</a>
           or buying a print from my
           <a
             href="https://www.redbubble.com/people/lightling/shop?asc=u"
-          >
-            Redbubble
-          </a>!
+          >Redbubble</a>!
         </p>
         <p>
           <span>
             Contact email:
             <a
               href="mailto:contactlightling@gmail.com"
-            >
-              contactlightling@gmail.com
-            </a>
+            >contactlightling@gmail.com</a>
           </span>
           <br />
           <span>
             Home site:
             <a
               href="https://lightling.xyz/"
-            >
-              lightling.xyz
-            </a>
+            >lightling.xyz</a>
           </span>
           <br />
         </p>
@@ -76,21 +68,18 @@
           I make music too! Consider supporting me by buying my music at
           <a
             href="https://lightling.bandcamp.com/"
-          >
-            Bandcamp
-          </a>.
+          >Bandcamp</a>.
         </p>
         <p>
-          Music and art are hobbies (for me, that is). My main field of work is
-          in game development. I'm currently a full-time student. I may
-          periodically be inactive with art/music to work on projects or
-          schoolwork. I may eventually set up Patreon for my development work,
+          For me, music and art are hobbies. My main field of work is
+          in programming (particularly gameplay and frontend/fullstack).
+          I'm currently seeking employment. I may
+          periodically be inactive with art/music to work on projects or work.
+          I may eventually set up Patreon for my development work,
           and I do have stuff available as PWYW on
           <a
             href="https://goldenwere.itch.io/"
-          >
-            itch.io
-          </a>.
+          >itch.io</a>.
         </p>
       </section>
       <section
@@ -135,7 +124,7 @@ main
   background-color: $brand-light-a
   padding: 2rem
   section
-    max-width: 32rem
+    max-width: 42rem
     margin: auto
     p
       margin-bottom: 1rem
@@ -154,7 +143,7 @@ main
     margin-top: 2rem
     display: grid
     grid-template-columns: repeat(2, 1fr)
-    grid-gap: 2rem
+    grid-gap: 1rem
 </style>
 
 <script lang="ts" setup>
