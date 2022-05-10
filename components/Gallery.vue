@@ -75,7 +75,7 @@
                   :key="element.title"
                   :url="element.url"
                   :title="element.title"
-                  :img="element.img"
+                  :img="toImageLink(element.img)"
                   :indicator="element.indicator"
                 />
               </div>
@@ -121,6 +121,8 @@ import VueCompositionAPI, {
   reactive,
 } from '@vue/composition-api'
 
+import Defines from '~/defines'
+
 Vue.use(VueCompositionAPI)
 
 export default defineComponent({
@@ -133,12 +135,17 @@ export default defineComponent({
       return '#' + toAnchor(str)
     }
 
+    const toImageLink = (str: String) => {
+      return Defines.galleryDataLocation + '/' + str;
+    }
+
     const galleryData = reactive([])
     const title = ref('loading')
 
     return {
       toAnchor,
       toAnchorLink,
+      toImageLink,
       galleryData,
       title,
     }
@@ -151,7 +158,12 @@ export default defineComponent({
   mounted() {
     const route = this.$route.path.replace('/gallery/', '')
     this.title = route.charAt(0).toUpperCase() + route.slice(1)
-    fetch(`/data/${route}.json`)
+    fetch(
+      `${Defines.galleryDataLocation}/${route}.json`,
+      {
+        mode: 'cors',
+      },
+    )
       .then((response) => response.json())
       .then((data) => {
         this.galleryData = (data as any).sections
