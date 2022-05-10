@@ -41,3 +41,13 @@ jobs:
 
       - name: Run tests 🧪
         run: npm run test
+
+      - name: Run build
+        run: npm run compile
+
+      - name: Publish to surge
+        uses: bevry-actions/surge@v1.0.3
+        with:
+          surgeLogin: ${{ secrets.SURGE_LOGIN }}
+          surgeToken: ${{ secrets.SURGE_TOKEN }}
+          surgeProject: 'dist'
