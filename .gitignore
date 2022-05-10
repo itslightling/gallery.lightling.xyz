@@ -89,4 +89,4 @@ sw.*
 # Vim swap files
 *.swp
 
-static/data
+!dist/CNAME
