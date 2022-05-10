@@ -47,6 +47,9 @@ jobs:
 
       - name: Run build
         run: npm run generate
+        
+      # checkout again for local action
+      - uses: actions/checkout@master
 
       - name: Publish to surge
         uses: ./.github/workflows/actions/surge
