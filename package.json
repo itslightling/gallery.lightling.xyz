@@ -13,7 +13,7 @@
     "lint": "npm run lint:js && npm run lint:style && npm run lint:prettier",
     "lintfix": "prettier --write --list-different . && npm run lint:js -- --fix && npm run lint:style -- --fix",
     "test": "jest",
-    "test:coverage": "jest --coverage"
+    "coverage": "jest --coverage"
   },
   "dependencies": {
     "@vue/composition-api": "^1.6.1",
