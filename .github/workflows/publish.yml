@@ -43,7 +43,7 @@ jobs:
         run: npm run test
 
       - name: Run build
-        run: npm run compile
+        run: npm run generate
 
       - name: Publish to surge
         uses: bevry-actions/surge@v1.0.3
