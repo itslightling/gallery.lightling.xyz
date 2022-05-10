@@ -1,1 +1,1 @@
-&copy; Lightling 2014-2021. All Rights Reserved.
+Copyright (c) 2022 Lightling. All rights reserved.
