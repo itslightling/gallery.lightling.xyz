@@ -59,9 +59,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import VueCompositionAPI, {
-  defineComponent,
-} from '@vue/composition-api'
+import VueCompositionAPI, { defineComponent } from '@vue/composition-api'
 import Indicator from 'types/Indicator'
 
 Vue.use(VueCompositionAPI)

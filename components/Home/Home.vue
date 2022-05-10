@@ -71,12 +71,11 @@
           >Bandcamp</a>.
         </p>
         <p>
-          For me, music and art are hobbies. My main field of work is
-          in programming (particularly gameplay and frontend/fullstack).
-          I'm currently seeking employment. I may
-          periodically be inactive with art/music to work on projects or work.
-          I may eventually set up Patreon for my development work,
-          and I do have stuff available as PWYW on
+          For me, music and art are hobbies. My main field of work is in
+          programming (particularly gameplay and frontend/fullstack). I'm
+          currently seeking employment. I may periodically be inactive with
+          art/music to work on projects or work. I may eventually set up Patreon
+          for my development work, and I do have stuff available as PWYW on
           <a
             href="https://goldenwere.itch.io/"
           >itch.io</a>.

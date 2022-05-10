@@ -48,7 +48,7 @@ export default defineComponent({
     subtitle: {
       type: String,
       default: undefined,
-    }
+    },
   },
 })
 </script>

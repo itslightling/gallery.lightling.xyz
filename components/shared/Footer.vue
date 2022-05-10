@@ -4,9 +4,7 @@
     <p>
       <a
         href="#"
-      >
-        Back To Top
-      </a>
+      > Back To Top </a>
     </p>
   </footer>
 </template>

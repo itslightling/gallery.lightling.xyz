@@ -7,10 +7,10 @@ import Gallery from '~/components/Gallery/Gallery'
 Vue.use(Router)
 
 Vue.directive('focus', {
-  inserted (el) {
-    el.focus();
-  }
-});
+  inserted(el) {
+    el.focus()
+  },
+})
 
 export function createRouter() {
   return new Router({

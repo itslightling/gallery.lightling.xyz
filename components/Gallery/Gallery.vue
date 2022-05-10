@@ -53,25 +53,19 @@
               <ContentIndicator
                 indicator="Safe"
               />
-              <span>
-                Safe
-              </span>
+              <span> Safe </span>
             </li>
             <li>
               <ContentIndicator
                 indicator="Mature"
               />
-              <span>
-                Mature
-              </span>
+              <span> Mature </span>
             </li>
             <li>
               <ContentIndicator
                 indicator="Adult"
               />
-              <span>
-                Adult
-              </span>
+              <span> Adult </span>
             </li>
           </ul>
         </section>
@@ -189,7 +183,7 @@ export default defineComponent({
     }
 
     const toImageLink = (str: String) => {
-      return Defines.galleryDataLocation + '/' + str;
+      return Defines.galleryDataLocation + '/' + str
     }
 
     const galleryData = reactive([])
@@ -211,14 +205,11 @@ export default defineComponent({
   },
   mounted() {
     const route = this.$route.path.replace('/gallery/', '')
-    this.showContentIndicator = route === 'anthro' || route === 'digital';
+    this.showContentIndicator = route === 'anthro' || route === 'digital'
     this.title = route.charAt(0).toUpperCase() + route.slice(1)
-    fetch(
-      `${Defines.galleryDataLocation}/${route}.json`,
-      {
-        mode: 'cors',
-      },
-    )
+    fetch(`${Defines.galleryDataLocation}/${route}.json`, {
+      mode: 'cors',
+    })
       .then((response) => response.json())
       .then((data) => {
         this.galleryData = (data as any).sections
