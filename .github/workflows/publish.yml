@@ -1,13 +1,13 @@
-name: ci
+name: publish
 
 on:
-  pull_request:
+  push:
     branches:
       - main
       - master
 
 jobs:
-  ci:
+  publish:
     runs-on: ${{ matrix.os }}
 
     strategy:
