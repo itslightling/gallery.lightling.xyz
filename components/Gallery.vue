@@ -1,7 +1,8 @@
 <template>
   <div>
     <Header
-      :title="'LightGallery | ' + title + ' Gallery'"
+      :title="'LightGallery'"
+      :subtitle="title + ' Gallery'"
     />
     <main>
       <section
@@ -100,6 +101,10 @@ main
     margin-bottom: 1rem
   section
     margin: auto
+  p,
+  span,
+  a
+    font-size: 1.25rem
 
 .gallery-grid
   display: grid

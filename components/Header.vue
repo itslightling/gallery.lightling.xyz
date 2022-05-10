@@ -1,7 +1,21 @@
 <template>
   <header>
     <h1>
-      {{ title }}
+      <span
+        v-if="subtitle"
+      >
+        <a
+          href="/"
+        >
+          {{ title }}
+        </a>
+        | {{ subtitle }}
+      </span>
+      <span
+        v-else
+      >
+        {{ title }}
+      </span>
     </h1>
   </header>
 </template>
@@ -31,6 +45,10 @@ export default defineComponent({
       type: String,
       required: true,
     },
+    subtitle: {
+      type: String,
+      default: undefined,
+    }
   },
 })
 </script>
