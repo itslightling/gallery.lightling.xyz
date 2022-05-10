@@ -174,7 +174,7 @@ export default defineComponent({
     Footer,
     Header,
   },
-  setup() {
+  setup () {
     const toAnchor = (str: String) => {
       return str.replace(' ', '_')
     }
@@ -198,13 +198,13 @@ export default defineComponent({
       title,
     }
   },
-  data() {
+  data () {
     return {
       shouldRender: false,
       showContentIndicator: false,
     }
   },
-  mounted() {
+  mounted () {
     const route = this.$route.path.replace('/gallery/', '')
     this.showContentIndicator = route === 'anthro' || route === 'digital'
     this.title = route.charAt(0).toUpperCase() + route.slice(1)

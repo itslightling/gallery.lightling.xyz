@@ -7,11 +7,23 @@ module.exports = {
   extends: [
     '@nuxtjs/eslint-config-typescript',
     'plugin:nuxt/recommended',
-    'prettier',
   ],
-  plugins: [],
   // add your custom rules here
   rules: {
+    quotes: ['error',
+      'single',
+      {
+        allowTemplateLiterals: true,
+      },
+    ],
+    'comma-dangle': ['error', {
+      arrays: 'always-multiline',
+      objects: 'always-multiline',
+      imports: 'always-multiline',
+      exports: 'always-multiline',
+      functions: 'always-multiline',
+    }],
+    'arrow-parens': ['error', 'always'],
     'vue/multi-word-component-names': 'off',
     'vue/component-tags-order': [
       'error',
@@ -63,5 +75,14 @@ module.exports = {
         allowEmptyLines: false,
       },
     ],
+    'vue/html-self-closing': ['error', {
+      html: {
+        void: 'always',
+        normal: 'always',
+        component: 'always',
+      },
+      svg: 'always',
+      math: 'always',
+    }],
   },
 }

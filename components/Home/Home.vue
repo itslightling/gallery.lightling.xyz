@@ -166,7 +166,7 @@ export default defineComponent({
     Header,
     SocialIconLink,
   },
-  setup() {
+  setup () {
     const currentTarget = ref('')
     const popupActive = ref(false)
 

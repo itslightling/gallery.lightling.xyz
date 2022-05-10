@@ -1,7 +1,7 @@
 <template>
   <div
     :class="colorCodeClass"
-  ></div>
+  />
 </template>
 
 <style lang="sass" scoped>
@@ -36,7 +36,7 @@ export default defineComponent({
       default: undefined,
     },
   },
-  setup(props: any) {
+  setup (props: any) {
     const indicator = ref(props.indicator)
 
     const colorCodeClass = computed(() => {

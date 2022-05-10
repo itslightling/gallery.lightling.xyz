@@ -8,12 +8,12 @@ Vue.use(Router)
 
 /* istanbul ignore next */
 Vue.directive('focus', {
-  inserted(el) {
+  inserted (el) {
     el.focus()
   },
 })
 
-export function createRouter() {
+export function createRouter () {
   return new Router({
     mode: 'history',
     routes: [

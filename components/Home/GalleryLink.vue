@@ -47,7 +47,7 @@ export default defineComponent({
       required: true,
     },
   },
-  setup(props: any) {
+  setup (props: any) {
     const element = ref(props.element)
 
     const imageURL = computed(() => {

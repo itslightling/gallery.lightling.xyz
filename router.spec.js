@@ -20,14 +20,14 @@ describe('createRouter', () => {
   })
   test('has digital route', () => {
     const el = wrapper.options.routes.find(
-      (el) => el.path === '/gallery/digital'
+      (el) => el.path === '/gallery/digital',
     )
     expect(el).toBeTruthy()
     expect(el.component.name).toBe('Gallery')
   })
   test('has anthro route', () => {
     const el = wrapper.options.routes.find(
-      (el) => el.path === '/gallery/anthro'
+      (el) => el.path === '/gallery/anthro',
     )
     expect(el).toBeTruthy()
     expect(el.component.name).toBe('Gallery')
@@ -39,7 +39,7 @@ describe('createRouter', () => {
   })
   test('has traditional route', () => {
     const el = wrapper.options.routes.find(
-      (el) => el.path === '/gallery/traditional'
+      (el) => el.path === '/gallery/traditional',
     )
     expect(el).toBeTruthy()
     expect(el.component.name).toBe('Gallery')
