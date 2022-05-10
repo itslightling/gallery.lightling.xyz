@@ -167,6 +167,7 @@ import Defines from '~/defines'
 Vue.use(VueCompositionAPI)
 
 export default defineComponent({
+  name: 'Gallery',
   components: {
     GalleryElement,
     ContentIndicator,

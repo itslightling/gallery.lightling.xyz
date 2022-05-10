@@ -6,6 +6,7 @@ import Gallery from '~/components/Gallery/Gallery'
 
 Vue.use(Router)
 
+/* istanbul ignore next */
 Vue.directive('focus', {
   inserted(el) {
     el.focus()

@@ -158,7 +158,7 @@ import SocialIconLink from '~/components/shared/SocialIconLink.vue'
 Vue.use(VueCompositionAPI)
 
 export default defineComponent({
-  name: 'IndexPage',
+  name: 'Home',
   components: {
     GalleryLink,
     GalleryLinkWarning,
