@@ -2,10 +2,10 @@
   <div class="gallery-element">
     <a
       :href="url"
-      :style="{ backgroundImage: imageURL }"
+      :style="{ 'background-image': 'url(' + img + ')' }"
     >
       <span>
-        {{ element }}
+        {{ title }}
       </span>
       <div
         v-if="indicator !== undefined"
@@ -25,7 +25,15 @@ Vue.use(VueCompositionAPI);
 export default defineComponent({
   name: 'GalleryElement',
   props: {
-    element: {
+    url: {
+      type: String,
+      required: true,
+    },
+    img: {
+      type: String,
+      required: true,
+    },
+    title: {
       type: String,
       required: true,
     },
@@ -35,19 +43,16 @@ export default defineComponent({
     },
   },
   setup(props: any) {
+    const img = ref(props.img);
     const indicator = ref(props.indicator);
-    const element = ref(props.element);
 
-    const url = computed(() => {
-      return `/${element}`;
-    });
-
-    const imageURL = computed(() => {
-      return `url(/images/${element})`;
+    const imageURL = ref(() => {
+      console.log(`'url(${img})'`)
+      return `url(${img})`;
     });
 
     const colorCodeClass = computed(() => {
-      switch(indicator) {
+      switch(indicator.value) {
         case 'Mature':
           return 'color-code cc-mature';
         case 'Adult':
@@ -59,10 +64,9 @@ export default defineComponent({
     });
 
     return {
-      url,
       imageURL,
       colorCodeClass,
-    };
+    }
   },
 });
 </script>
