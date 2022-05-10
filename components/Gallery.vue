@@ -43,7 +43,39 @@
           <!--<content-indicators></content-indicators>-->
         </section>
         <section
-          v-if="shouldRender"
+          v-if="showContentIndicator"
+          class="content-key"
+        >
+          <h3>Content Level</h3>
+          <p>No indicator = assume Safe</p>
+          <ul>
+            <li>
+              <ContentIndicator
+                indicator="Safe"
+              />
+              <span>
+                Safe
+              </span>
+            </li>
+            <li>
+              <ContentIndicator
+                indicator="Mature"
+              />
+              <span>
+                Mature
+              </span>
+            </li>
+            <li>
+              <ContentIndicator
+                indicator="Adult"
+              />
+              <span>
+                Adult
+              </span>
+            </li>
+          </ul>
+        </section>
+        <section
           class="gallery"
         >
           <h3>Gallery</h3>
@@ -106,6 +138,16 @@ main
   a
     font-size: 1.25rem
 
+.content-key
+  ul
+    list-style: none
+    padding-left: 0
+    li
+      margin: $mtl-round 0
+      display: flex
+      grid-gap: 0.5rem
+      align-items: center
+
 .gallery-grid
   display: grid
   grid-template-columns: repeat(4, 1fr)
@@ -153,10 +195,12 @@ export default defineComponent({
   data() {
     return {
       shouldRender: false,
+      showContentIndicator: false,
     }
   },
   mounted() {
     const route = this.$route.path.replace('/gallery/', '')
+    this.showContentIndicator = route === 'anthro' || route === 'digital';
     this.title = route.charAt(0).toUpperCase() + route.slice(1)
     fetch(
       `${Defines.galleryDataLocation}/${route}.json`,
