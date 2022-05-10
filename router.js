@@ -6,6 +6,12 @@ import Gallery from '~/components/Gallery'
 
 Vue.use(Router)
 
+Vue.directive('focus', {
+  inserted (el) {
+    el.focus();
+  }
+});
+
 export function createRouter() {
   return new Router({
     mode: 'history',
