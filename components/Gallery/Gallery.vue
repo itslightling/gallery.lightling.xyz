@@ -163,11 +163,22 @@ import VueCompositionAPI, {
   reactive,
 } from '@vue/composition-api'
 
+import GalleryElement from './GalleryElement.vue'
+import ContentIndicator from '~/components/shared/ContentIndicator.vue'
+import Footer from '~/components/shared/Footer.vue'
+import Header from '~/components/shared/Header.vue'
+
 import Defines from '~/defines'
 
 Vue.use(VueCompositionAPI)
 
 export default defineComponent({
+  components: {
+    GalleryElement,
+    ContentIndicator,
+    Footer,
+    Header,
+  },
   setup() {
     const toAnchor = (str: String) => {
       return str.replace(' ', '_')

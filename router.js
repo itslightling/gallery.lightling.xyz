@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Home from '~/components/Home'
-import Gallery from '~/components/Gallery'
+import Home from '~/components/Home/Home'
+import Gallery from '~/components/Gallery/Gallery'
 
 Vue.use(Router)
 

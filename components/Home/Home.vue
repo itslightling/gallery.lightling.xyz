@@ -150,10 +150,23 @@ main
 import Vue from 'vue'
 import VueCompositionAPI, { defineComponent, ref } from '@vue/composition-api'
 
+import GalleryLink from './GalleryLink.vue'
+import GalleryLinkWarning from './GalleryLinkWarning.vue'
+import Footer from '~/components/shared/Footer.vue'
+import Header from '~/components/shared/Header.vue'
+import SocialIconLink from '~/components/shared/SocialIconLink.vue'
+
 Vue.use(VueCompositionAPI)
 
 export default defineComponent({
   name: 'IndexPage',
+  components: {
+    GalleryLink,
+    GalleryLinkWarning,
+    Footer,
+    Header,
+    SocialIconLink,
+  },
   setup() {
     const currentTarget = ref('')
     const popupActive = ref(false)
