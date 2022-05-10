@@ -17,7 +17,25 @@
           You're likely here for that last one. My art can be found in a variety
           of places:
         </p>
-        <!-- TODO: APP ICONS -->
+        <div
+          class="icons"
+        >
+          <SocialIconLink
+            src="images/places/da.svg"
+            title="Deviant Art"
+            href="https://www.deviantart.com/xlightling"
+          />
+          <SocialIconLink
+            src="images/places/rb.svg"
+            title="Red Bubble"
+            href="https://www.redbubble.com/people/lightling/shop?asc=u"
+          />
+          <SocialIconLink
+            src="images/places/fa.svg"
+            title="Fur Affinity"
+            href="furaffinity.net/user/lightling/"
+          />
+        </div>
         <p>
           Here, however, you can find galleries for full-resolution/alternative
           versions for artwork that are not available on the above sites. If you
@@ -121,6 +139,15 @@ main
     margin: auto
     p
       margin-bottom: 1rem
+
+.icons
+  margin: 1rem
+  display: flex
+  height: 6rem
+  justify-content: center
+  grid-gap: 1rem
+  &>*
+    flex: 0 0 6rem
 
 #gallery
   .links

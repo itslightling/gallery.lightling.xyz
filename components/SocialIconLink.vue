@@ -3,15 +3,27 @@
     :href="href"
   >
     <img
-      :src="img"
-      :alt="alt"
+      :src="src"
+      :alt="title + 'icon'"
       :title="title"
     />
   </a>
 </template>
 
+<style lang="sass" scoped>
+a
+  border-radius: 100%
+  &::after
+    display: none
+  img
+    max-width: 100%
+    max-height: 100%
+    &:hover
+      opacity: 0.5
+</style>
+
 <script lang="ts">
-import { defineComponent, ref } from '@vue/composition-api'
+import { defineComponent } from '@vue/composition-api'
 
 export default defineComponent({
   name: 'SocialIconLink',
@@ -28,14 +40,6 @@ export default defineComponent({
       type: String,
       required: true,
     },
-  },
-  setup(props: any) {
-    const title = ref(props.title)
-    const alt: String = `${title} icon`
-
-    return {
-      alt,
-    }
   },
 })
 </script>
