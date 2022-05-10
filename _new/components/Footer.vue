@@ -16,6 +16,8 @@
 
 footer
   background-color: $brand-dark-a
+  padding: 2rem 4rem
+  text-align: center
   p
     color: $brand-bright-a
   a

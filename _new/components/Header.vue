@@ -11,6 +11,8 @@
 
 header
   background-color: $brand-dark-a
+  padding: 2rem 4rem
+  text-align: center
   h1
     color: $brand-bright-a
   a
