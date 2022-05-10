@@ -1,10 +1,10 @@
 <template>
   <footer>
+    <p>&copy; Lightling 2014-2022. All Rights Reserved.</p>
     <p>
-      &copy; Lightling 2014-2022. All Rights Reserved.
-    </p>
-    <p>
-      <a href="#">
+      <a
+        href="#"
+      >
         Back To Top
       </a>
     </p>

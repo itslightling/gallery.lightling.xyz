@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@vue/composition-api';
+import { defineComponent, ref } from '@vue/composition-api'
 
 export default defineComponent({
   name: 'SocialIconLink',
@@ -27,15 +27,15 @@ export default defineComponent({
     href: {
       type: String,
       required: true,
-    }
+    },
   },
   setup(props: any) {
-    const title = ref(props.title);
-    const alt: String = `${title} icon`;
+    const title = ref(props.title)
+    const alt: String = `${title} icon`
 
     return {
       alt,
-    };
+    }
   },
 })
 </script>

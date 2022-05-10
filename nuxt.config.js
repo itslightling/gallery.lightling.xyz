@@ -14,16 +14,11 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    'normalize.css/normalize.css',
-    '~/style/main.sass',
-  ],
+  css: ['normalize.css/normalize.css', '~/style/main.sass'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -48,8 +43,6 @@ export default {
   build: {},
 
   generate: {
-    routes: [
-      '/'
-    ]
-  }
+    routes: ['/'],
+  },
 }

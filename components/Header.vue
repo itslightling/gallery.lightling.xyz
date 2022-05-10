@@ -30,7 +30,7 @@ export default defineComponent({
     title: {
       type: String,
       required: true,
-    }
-  }
+    },
+  },
 })
 </script>

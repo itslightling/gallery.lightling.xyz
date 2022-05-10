@@ -12,7 +12,7 @@ export function createRouter() {
     routes: [
       {
         path: '/',
-        component: Home
+        component: Home,
       },
       {
         path: '/gallery/digital',
@@ -29,7 +29,7 @@ export function createRouter() {
       {
         path: '/gallery/anthro',
         component: Gallery,
-      }
-    ]
+      },
+    ],
   })
 }

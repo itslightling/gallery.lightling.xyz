@@ -9,10 +9,14 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import VueCompositionAPI, { defineComponent, ref, computed } from '@vue/composition-api';
+import Vue from 'vue'
+import VueCompositionAPI, {
+  defineComponent,
+  ref,
+  computed,
+} from '@vue/composition-api'
 
-Vue.use(VueCompositionAPI);
+Vue.use(VueCompositionAPI)
 
 export default defineComponent({
   name: 'GalleryLink',
@@ -23,15 +27,15 @@ export default defineComponent({
     },
   },
   setup(props: any) {
-    const element = ref(props.element);
+    const element = ref(props.element)
 
     const imageURL = computed(() => {
-      return `url(/images/${element})`;
-    });
+      return `url(/images/${element})`
+    })
 
     return {
       imageURL,
-    };
+    }
   },
 })
 </script>

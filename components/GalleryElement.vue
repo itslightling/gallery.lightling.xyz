@@ -1,5 +1,7 @@
 <template>
-  <div class="gallery-element">
+  <div
+    class="gallery-element"
+  >
     <a
       :href="url"
       :style="{ 'background-image': 'url(' + img + ')' }"
@@ -10,17 +12,20 @@
       <div
         v-if="indicator !== undefined"
         :class="colorCodeClass"
-      >
-      </div>
+      ></div>
     </a>
   </div>
 </template>
 <script lang="ts">
-import Vue from 'vue';
-import VueCompositionAPI, { defineComponent, ref, computed } from "@vue/composition-api";
-import Indicator from 'types/Indicator';
+import Vue from 'vue'
+import VueCompositionAPI, {
+  defineComponent,
+  ref,
+  computed,
+} from '@vue/composition-api'
+import Indicator from 'types/Indicator'
 
-Vue.use(VueCompositionAPI);
+Vue.use(VueCompositionAPI)
 
 export default defineComponent({
   name: 'GalleryElement',
@@ -43,30 +48,29 @@ export default defineComponent({
     },
   },
   setup(props: any) {
-    const img = ref(props.img);
-    const indicator = ref(props.indicator);
+    const img = ref(props.img)
+    const indicator = ref(props.indicator)
 
     const imageURL = ref(() => {
-      console.log(`'url(${img})'`)
-      return `url(${img})`;
-    });
+      return `url(${img})`
+    })
 
     const colorCodeClass = computed(() => {
-      switch(indicator.value) {
+      switch (indicator.value) {
         case 'Mature':
-          return 'color-code cc-mature';
+          return 'color-code cc-mature'
         case 'Adult':
-          return 'color-code cc-adult';
+          return 'color-code cc-adult'
         case 'Safe':
         default:
-          return 'color-code cc-sfw';
+          return 'color-code cc-sfw'
       }
-    });
+    })
 
     return {
       imageURL,
       colorCodeClass,
     }
   },
-});
+})
 </script>

@@ -1,10 +1,15 @@
 <template>
-  <div class="warning">
+  <div
+    class="warning"
+  >
     <h4>Warning!</h4>
     <p>
-      This gallery contains NSFW mature/adult material. Only browse if you are 18+ of age.
+      This gallery contains NSFW mature/adult material. Only browse if you are
+      18+ of age.
     </p>
-    <div class="buttons">
+    <div
+      class="buttons"
+    >
       <button
         v-focus
         @click="$emit('disable')"
@@ -24,8 +29,6 @@
 import { defineComponent } from '@vue/composition-api'
 
 export default defineComponent({
-  setup() {
-
-  },
+  setup() {},
 })
 </script>

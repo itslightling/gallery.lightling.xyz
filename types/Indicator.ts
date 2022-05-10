@@ -1,6 +1,3 @@
-type Indicator =
-  | 'Safe'
-  | 'Mature'
-  | 'Adult'
+type Indicator = 'Safe' | 'Mature' | 'Adult'
 
-export default Indicator;
+export default Indicator

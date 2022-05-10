@@ -4,9 +4,14 @@
       :title="'LightGallery | ' + title + ' Gallery'"
     />
     <main>
-      <section v-if="shouldRender" class="main">
+      <section
+        v-if="shouldRender"
+        class="main"
+      >
         <h2>{{ title }} Gallery</h2>
-        <section class="gallery-nav">
+        <section
+          class="gallery-nav"
+        >
           <h3>Navigation</h3>
           <ul>
             <li
@@ -25,7 +30,9 @@
                   v-for="subsection in section.subsections"
                   :key="subsection"
                 >
-                  <a :href="toAnchorLink(section.id + '_' + subsection.id)">
+                  <a
+                    :href="toAnchorLink(section.id + '_' + subsection.id)"
+                  >
                     {{ subsection.id }}
                   </a>
                 </li>
@@ -34,7 +41,10 @@
           </ul>
           <!--<content-indicators></content-indicators>-->
         </section>
-        <section v-if="shouldRender" class="gallery">
+        <section
+          v-if="shouldRender"
+          class="gallery"
+        >
           <h3>Gallery</h3>
           <section
             v-for="section in galleryData"
@@ -56,7 +66,9 @@
               >
                 {{ subsection.id }}
               </h5>
-              <div class="gallery-grid">
+              <div
+                class="gallery-grid"
+              >
                 <GalleryElement
                   v-for="element in subsection.content"
                   :key="element.title"
@@ -71,8 +83,7 @@
         </section>
       </section>
     </main>
-    <Footer
-    />
+    <Footer />
   </div>
 </template>
 
@@ -129,23 +140,27 @@ main
 </style>
 
 <script lang="ts">
-import Vue from 'vue';
-import VueCompositionAPI, { defineComponent, ref, reactive } from '@vue/composition-api'
+import Vue from 'vue'
+import VueCompositionAPI, {
+  defineComponent,
+  ref,
+  reactive,
+} from '@vue/composition-api'
 
-Vue.use(VueCompositionAPI);
+Vue.use(VueCompositionAPI)
 
 export default defineComponent({
   setup() {
     const toAnchor = (str: String) => {
-      return str.replace(' ','_');
+      return str.replace(' ', '_')
     }
 
     const toAnchorLink = (str: String) => {
-      return '#' + toAnchor(str);
+      return '#' + toAnchor(str)
     }
 
-    const galleryData = reactive([]);
-    const title = ref('loading');
+    const galleryData = reactive([])
+    const title = ref('loading')
 
     return {
       toAnchor,
@@ -160,14 +175,14 @@ export default defineComponent({
     }
   },
   mounted() {
-    const route = this.$route.path.replace('/gallery/', '');
-    this.title = route.charAt(0).toUpperCase() + route.slice(1);
+    const route = this.$route.path.replace('/gallery/', '')
+    this.title = route.charAt(0).toUpperCase() + route.slice(1)
     fetch(`/data/${route}.json`)
-    .then(response => response.json())
-    .then(data => {
-      this.galleryData = (data as any).sections;
-      this.shouldRender = true;
-    });
+      .then((response) => response.json())
+      .then((data) => {
+        this.galleryData = (data as any).sections
+        this.shouldRender = true
+      })
   },
 })
 </script>
