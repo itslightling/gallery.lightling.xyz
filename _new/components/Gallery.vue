@@ -125,11 +125,11 @@ Vue.use(VueCompositionAPI);
 
 export default defineComponent({
   setup() {
-    const toAnchor = (str) => {
+    const toAnchor = (str: String) => {
       return str.replace(' ','_');
     }
 
-    const toAnchorLink = (str) => {
+    const toAnchorLink = (str: String) => {
       return '#' + toAnchor(str);
     }
 
