@@ -110,11 +110,44 @@
 @import 'style/variables.sass'
 
 main
-  background-color: #e8bbb0
+  background-color: $brand-light-a
   padding: 2rem
   section
     max-width: 32rem
     margin: auto
+    p
+      margin-bottom: 1rem
+
+.warning
+  display: block
+  position: fixed
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  padding: 2rem
+  z-index: 1
+  background-color: #351431
+  color: #e68e84
+  border-radius: 2rem
+  &::before
+    content: ""
+    position: absolute
+    top: -100%
+    bottom: -100%
+    left: -100%
+    right: -100%
+    z-index: -1
+    background-color: #0009
+  .buttons
+    display: flex
+    flex-wrap: wrap
+    grid-gap: 0.5rem
+    button
+      flex: 1 0 100%
+      height: 3rem
+      border-radius: 2rem
+      background-color: #53707e
+      color: #ffe0e8
 </style>
 
 <script lang="ts" setup>

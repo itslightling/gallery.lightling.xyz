@@ -87,11 +87,11 @@
   </div>
 </template>
 
-<style lang="sass">
+<style lang="sass" scoped>
 @import 'style/variables.sass'
 
 main
-  background-color: white
+  background-color: $brand-light-a
   padding: 2rem
   h2,
   h3,
@@ -105,38 +105,7 @@ main
   display: grid
   grid-template-columns: repeat(4, 1fr)
   grid-gap: 1rem
-  .gallery-element
-    height: 15rem
-    .color-code
-      position: absolute
-      margin: 0.25rem
-    a
-      height: 100%
-      width: 100%
-      padding: 0
-      margin: 0
-      line-height: 100%
-      display: block
-      position: relative
-      background-color: transparent
-      background-position: center center
-      background-repeat: no-repeat
-      box-shadow: 0 0.5rem 1rem 0 #27404c
-      border: 2px lighten($brand-dark-a, 50%) solid
-      color: lighten($brand-dark-a, 50%)
-      border-radius: $mtl-round
-      &::after
-        display: none
-      span
-        position: absolute
-        text-align: center
-        bottom: 1rem
-        left: 0
-        right: 0
-        padding: 0.5rem
-        background-color: #0009
-        backdrop-filter: blur(50px)
-        -webkit-backdrop-filter: blur(50px)
+  margin-bottom: 2rem
 </style>
 
 <script lang="ts">
