@@ -49,7 +49,7 @@ jobs:
         run: npm run generate
 
       - name: Publish to surge
-        uses: publish: ./.github/actions/surge.yml
+        uses: ./.github/actions/surge.yml
         with:
           surgeLogin: ${{ secrets.SURGE_LOGIN }}
           surgeToken: ${{ secrets.SURGE_TOKEN }}
