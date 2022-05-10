@@ -82,15 +82,20 @@
 main
   background-color: white
   padding: 2rem
+  h2,
+  h3,
+  h4,
+  h5
+    margin-bottom: 1rem
   section
     margin: auto
 
 .gallery-grid
   display: grid
   grid-template-columns: repeat(4, 1fr)
-  grid-gap: 0.25rem
+  grid-gap: 1rem
   .gallery-element
-    height: 12rem
+    height: 15rem
     .color-code
       position: absolute
       margin: 0.25rem
@@ -102,9 +107,15 @@ main
       line-height: 100%
       display: block
       position: relative
+      background-color: transparent
       background-position: center center
+      background-repeat: no-repeat
       box-shadow: 0 0.5rem 1rem 0 #27404c
       border: 2px lighten($brand-dark-a, 50%) solid
+      color: lighten($brand-dark-a, 50%)
+      border-radius: $mtl-round
+      &::after
+        display: none
       span
         position: absolute
         text-align: center
