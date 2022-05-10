@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - master
+      - actions
 
 jobs:
   publish:
@@ -49,7 +50,7 @@ jobs:
         run: npm run generate
 
       - name: Publish to surge
-        uses: ./.github/actions/surge.yml
+        uses: goldenwere/actions/surge-publish@main
         with:
           surgeLogin: ${{ secrets.SURGE_LOGIN }}
           surgeToken: ${{ secrets.SURGE_TOKEN }}
