@@ -42,6 +42,9 @@ jobs:
       - name: Run tests 🧪
         run: npm run test
 
+      - name: Install surge
+        run: npm install --save-dev surge
+
       - name: Run build
         run: npm run generate
 
