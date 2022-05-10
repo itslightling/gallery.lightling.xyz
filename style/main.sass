@@ -5,6 +5,18 @@ body
   color: $brand-dark-b
   font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif
 
+button,
+a
+  border: none !important
+  outline: 0.25rem solid #0000 !important
+  transition: $mtl-transition
+  &:focus,
+  &:active
+    outline-color: $brand-dark-a !important
+button
+  &:hover
+    outline-color: lighten($brand-dark-a, 50%) !important
+
 h1,
 h2,
 h3,

@@ -47,7 +47,7 @@
           <span>
             Home site:
             <a
-              href="http://lightling.xyz/"
+              href="https://lightling.xyz/"
             >
               lightling.xyz
             </a>
@@ -79,22 +79,26 @@
         id="gallery"
       >
         <h2>Gallery</h2>
-        <GalleryLink
-          element="Traditional"
-          @click="setAndGo('traditional')"
-        />
-        <GalleryLink
-          element="digital"
-          @click="setAndWarn('digital')"
-        />
-        <GalleryLink
-          element="Photography"
-          @click="setAndGo('photography')"
-        />
-        <GalleryLink
-          element="anthro"
-          @click="setAndWarn('anthro')"
-        />
+        <div
+          class="links"
+        >
+          <GalleryLink
+            element="traditional"
+            @click="setAndGo('traditional')"
+          />
+          <GalleryLink
+            element="digital"
+            @click="setAndWarn('digital')"
+          />
+          <GalleryLink
+            element="photography"
+            @click="setAndGo('photography')"
+          />
+          <GalleryLink
+            element="anthro"
+            @click="setAndWarn('anthro')"
+          />
+        </div>
         <GalleryLinkWarning
           v-if="popupActive"
           @disable="disablePopup()"
@@ -118,36 +122,12 @@ main
     p
       margin-bottom: 1rem
 
-.warning
-  display: block
-  position: fixed
-  top: 50%
-  left: 50%
-  transform: translate(-50%, -50%)
-  padding: 2rem
-  z-index: 1
-  background-color: #351431
-  color: #e68e84
-  border-radius: 2rem
-  &::before
-    content: ""
-    position: absolute
-    top: -100%
-    bottom: -100%
-    left: -100%
-    right: -100%
-    z-index: -1
-    background-color: #0009
-  .buttons
-    display: flex
-    flex-wrap: wrap
-    grid-gap: 0.5rem
-    button
-      flex: 1 0 100%
-      height: 3rem
-      border-radius: 2rem
-      background-color: #53707e
-      color: #ffe0e8
+#gallery
+  .links
+    margin-top: 2rem
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    grid-gap: 2rem
 </style>
 
 <script lang="ts" setup>

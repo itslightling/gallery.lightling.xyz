@@ -36,10 +36,13 @@
     background-color: transparent
     background-position: center center
     background-repeat: no-repeat
+    background-size: cover
     box-shadow: 0 0.5rem 1rem 0 #27404c
     border: 2px lighten($brand-dark-a, 50%) solid
     color: lighten($brand-dark-a, 50%)
     border-radius: $mtl-round
+    &:hover
+      outline-color: lighten($brand-dark-a, 50%) !important
     &::after
       display: none
     span
