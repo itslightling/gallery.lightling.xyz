@@ -60,12 +60,16 @@
 <script lang="ts">
 import Vue from 'vue'
 import VueCompositionAPI, { defineComponent } from '@vue/composition-api'
+import ContentIndicator from '~/components/shared/ContentIndicator.vue'
 import Indicator from 'types/Indicator'
 
 Vue.use(VueCompositionAPI)
 
 export default defineComponent({
   name: 'GalleryElement',
+  components: {
+    ContentIndicator,
+  },
   props: {
     url: {
       type: String,

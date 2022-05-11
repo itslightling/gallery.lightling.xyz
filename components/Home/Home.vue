@@ -33,7 +33,7 @@
           <SocialIconLink
             src="images/places/fa.svg"
             title="Fur Affinity"
-            href="furaffinity.net/user/lightling/"
+            href="https://www.furaffinity.net/user/lightling/"
           />
         </div>
         <p>
