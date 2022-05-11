@@ -4,7 +4,7 @@ Exceptions:
 - All files under .github/* | The Unlicense
 - All files under types/* | The Unlicense
 - All files under styles/* | The Unlicense
-- All files under components/Gallery/*; All files under components/shared/*; components/Home/GalleryLink.vue; components/Home/GalleryLinkWarning.vue | MIT
+- All files under components/Gallery/\*; All files under components/shared/\*; components/Home/GalleryLink.vue; components/Home/GalleryLinkWarning.vue | MIT
 - All loost files at the root of the project ('./') | MIT
 
 BEGIN "The Unlicense"
