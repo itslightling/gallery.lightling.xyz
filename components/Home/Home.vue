@@ -1,24 +1,51 @@
 <template>
-  <div>
-    <Header
-      title="LightGallery"
-    />
+  <div
+    class="content"
+  >
     <main>
-      <section
-        id="about"
+      <div
+        id="avatar"
       >
-        <h2>About</h2>
-        <p
-          class="txt-lg"
-        >
-          Developer // Composer // Artist
+        <span>Lightling</span>
+      </div>
+      <div>
+        <p>LightGallery | Home</p>
+      </div>
+      <div
+        id="galleries"
+        class="links"
+      >
+        <GalleryLink
+          element="traditional"
+          @click="setAndGo('traditional')"
+        />
+        <GalleryLink
+          element="digital"
+          @click="setAndWarn('digital')"
+        />
+        <GalleryLink
+          element="photography"
+          @click="setAndGo('photography')"
+        />
+        <GalleryLink
+          element="anthro"
+          @click="setAndWarn('anthro')"
+        />
+      </div>
+      <div>
+        <p>
+          I'm Lightling, a developer who creates art and music
+          when I have the time.
         </p>
         <p>
-          You're likely here for that last one. My art can be found in a variety
-          of places:
+          This site acts as a singular spot to link all of my art,
+          which is hosted externally.
+          Various galleries may have a different focus between themselves,
+          so I have unified them here.
         </p>
         <div
-          class="icons"
+          id="social"
+          class="links"
         >
           <SocialIconLink
             src="images/places/da.svg"
@@ -36,113 +63,29 @@
             href="https://www.furaffinity.net/user/lightling/"
           />
         </div>
-        <p>
-          Here, however, you can find galleries for full-resolution/alternative
-          versions for artwork that are not available on the above sites. If you
-          wish to support my art (or my other work), please consider using my
-          <a
-            href="https://ko-fi.com/lightling"
-          >Ko-Fi</a>
-          or buying a print from my
-          <a
-            href="https://www.redbubble.com/people/lightling/shop?asc=u"
-          >Redbubble</a>!
-        </p>
-        <p>
-          <span>
-            Contact email:
-            <a
-              href="mailto:contactlightling@gmail.com"
-            >contactlightling@gmail.com</a>
-          </span>
-          <br />
-          <span>
-            Home site:
-            <a
-              href="https://lightling.xyz/"
-            >lightling.xyz</a>
-          </span>
-          <br />
-        </p>
-        <p>
-          I make music too! Consider supporting me by buying my music at
-          <a
-            href="https://lightling.bandcamp.com/"
-          >Bandcamp</a>.
-        </p>
-        <p>
-          For me, music and art are hobbies. My main field of work is in
-          programming (particularly gameplay and frontend/fullstack). I'm
-          currently seeking employment. I may periodically be inactive with
-          art/music to work on projects or work. I may eventually set up Patreon
-          for my development work, and I do have stuff available as PWYW on
-          <a
-            href="https://goldenwere.itch.io/"
-          >itch.io</a>.
-        </p>
-      </section>
-      <section
-        id="gallery"
-      >
-        <h2>Gallery</h2>
-        <div
-          class="links"
-        >
-          <GalleryLink
-            element="traditional"
-            @click="setAndGo('traditional')"
-          />
-          <GalleryLink
-            element="digital"
-            @click="setAndWarn('digital')"
-          />
-          <GalleryLink
-            element="photography"
-            @click="setAndGo('photography')"
-          />
-          <GalleryLink
-            element="anthro"
-            @click="setAndWarn('anthro')"
-          />
-        </div>
-        <GalleryLinkWarning
-          v-if="popupActive"
-          @disable="disablePopup()"
-          @acknowledge="goToGallery()"
-        />
-      </section>
+      </div>
     </main>
-    <Footer />
   </div>
 </template>
 
 <style lang="sass" scoped>
 @import 'style/variables.sass'
 
-main
-  background-color: $brand-light-a
-  padding: 2rem
-  section
-    max-width: 42rem
-    margin: auto
-    p
-      margin-bottom: 1rem
-
-.icons
-  margin: 1rem
-  display: flex
-  height: 6rem
-  justify-content: center
-  grid-gap: 1rem
-  &>*
-    flex: 0 0 6rem
-
-#gallery
-  .links
-    margin-top: 2rem
-    display: grid
-    grid-template-columns: repeat(2, 1fr)
-    grid-gap: 1rem
+.content
+  background-image: url('/images/home/photography.jpg')
+  background-size: cover
+  background-position: center center
+  height: 100vh
+  width: 100vw
+  overflow: hidden
+  main
+    background-color: $brand-light-a
+    position: fixed
+    right: 0
+    top: 0
+    bottom: 0
+    width: 36rem
+    overflow-y: scroll
 </style>
 
 <script lang="ts" setup>
