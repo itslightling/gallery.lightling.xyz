@@ -48,26 +48,31 @@
           Various galleries may have a different focus between themselves,
           so I have unified them here.
         </p>
-        <div
-          id="social"
-          class="links"
-        >
-          <SocialIconLink
-            src="images/places/da.svg"
-            title="Deviant Art"
-            href="https://www.deviantart.com/xlightling"
-          />
-          <SocialIconLink
-            src="images/places/rb.svg"
-            title="Red Bubble"
-            href="https://www.redbubble.com/people/lightling/shop?asc=u"
-          />
-          <SocialIconLink
-            src="images/places/fa.svg"
-            title="Fur Affinity"
-            href="https://www.furaffinity.net/user/lightling/"
-          />
-        </div>
+      </div>
+      <div
+        id="social"
+        class="links"
+      >
+        <SocialIconLink
+          src="images/places/da.svg"
+          title="Deviant Art"
+          href="https://www.deviantart.com/xlightling"
+        />
+        <SocialIconLink
+          src="images/places/rb.svg"
+          title="Red Bubble"
+          href="https://www.redbubble.com/people/lightling/shop?asc=u"
+        />
+        <SocialIconLink
+          src="images/places/fa.svg"
+          title="Fur Affinity"
+          href="https://www.furaffinity.net/user/lightling/"
+        />
+      </div>
+      <div
+        id="footer"
+      >
+        <p>Copyright (C) Lightling 2014-2022</p>
       </div>
     </main>
   </div>
@@ -94,6 +99,8 @@
     display: grid
     justify-items: center
     align-items: center
+    grid-gap: calc($mtl-round * 2)
+    padding: calc($mtl-round * 2) 0
     #avatar
       position: relative
       background-image: url('/images/v1-official.svg')
@@ -119,13 +126,15 @@
       grid-gap: $mtl-round
     #galleries
       grid-template-columns: 1fr 1fr
+      width: 90%
+    #social
+      width: 90%
     div
-      margin: calc($mtl-round * 2) 0
       h1
         font-size: 2rem
         margin: calc($mtl-round * 2) 0
       p
-        font-size: 1rem
+        font-size: 1.2rem
         max-width: 24rem
         margin: calc($mtl-round * 2) auto
 </style>
