@@ -7,19 +7,36 @@
       :alt="title + 'icon'"
       :title="title"
     />
+    <span>{{ title }}</span>
   </a>
 </template>
 
 <style lang="sass" scoped>
+@import 'style/variables.sass'
+
 a
-  border-radius: 100%
+  width: calc(100% - ($mtl-round * 2))
+  border-radius: $mtl-round
+  height: 4rem
+  padding: $mtl-round
+  display: flex
+  align-items: center
+  background-color: $brand-dark-a
+  color: $brand-medium-a
+  grid-gap: $mtl-round
+  &:hover
+    opacity: 0.5
+  &:focus
+    background-color: $brand-dark-b
   &::after
     display: none
   img
-    max-width: 100%
-    max-height: 100%
-    &:hover
-      opacity: 0.5
+    height: 4rem
+    width: 4rem
+    flex: 0 0 4rem
+  span
+    flex: 1 1 auto
+    font-size: 1.2rem
 </style>
 
 <script lang="ts">
