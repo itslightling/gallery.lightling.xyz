@@ -15,15 +15,15 @@
 @import 'style/variables.sass'
 
 a
-  width: calc(100% - ($mtl-round * 2))
+  width: calc(100% - ($mtl-pad * 2))
   border-radius: $mtl-round
   height: 4rem
-  padding: $mtl-round
+  padding: $mtl-pad
   display: flex
   align-items: center
   background-color: $brand-dark-a
   color: $brand-medium-a
-  grid-gap: $mtl-round
+  grid-gap: $mtl-pad
   &:hover
     opacity: 0.5
   &:focus

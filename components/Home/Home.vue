@@ -99,8 +99,8 @@
     display: grid
     justify-items: center
     align-items: center
-    grid-gap: calc($mtl-round * 2)
-    padding: calc($mtl-round * 2) 0
+    grid-gap: calc($mtl-pad * 2)
+    padding: calc($mtl-pad * 2) 0
     #avatar
       position: relative
       background-image: url('/images/v1-official.svg')
@@ -118,12 +118,12 @@
         right: 0
         text-align: center
         font-size: 1.25rem
-        padding: calc($mtl-round / 2) 0
+        padding: calc($mtl-pad / 2) 0
         background-color: #000a
         border-radius: 0 0 $mtl-round $mtl-round
     .links
       display: grid
-      grid-gap: $mtl-round
+      grid-gap: $mtl-pad
     #galleries
       grid-template-columns: 1fr 1fr
       width: 90%
@@ -132,11 +132,11 @@
     div
       h1
         font-size: 2rem
-        margin: calc($mtl-round * 2) 0
+        margin: calc($mtl-pad * 2) 0
       p
         font-size: 1.2rem
         max-width: 24rem
-        margin: calc($mtl-round * 2) auto
+        margin: calc($mtl-pad * 2) auto
 </style>
 
 <script lang="ts" setup>
