@@ -9,7 +9,7 @@
         <span>Lightling</span>
       </div>
       <div>
-        <p>LightGallery | Home</p>
+        <h1>LightGallery | Home</h1>
       </div>
       <div
         id="galleries"
@@ -30,6 +30,11 @@
         <GalleryLink
           element="anthro"
           @click="setAndWarn('anthro')"
+        />
+        <GalleryLinkWarning
+          v-if="popupActive"
+          @disable="disablePopup()"
+          @acknowledge="goToGallery()"
         />
       </div>
       <div>
@@ -86,6 +91,43 @@
     bottom: 0
     width: 36rem
     overflow-y: scroll
+    display: grid
+    justify-items: center
+    align-items: center
+    #avatar
+      position: relative
+      background-image: url('/images/v1-official.svg')
+      background-size: cover
+      background-position: center center
+      background-color: $brand-bright-a
+      height: 12rem
+      width: 12rem
+      border-radius: $mtl-round
+      span
+        color: $brand-bright-a
+        position: absolute
+        bottom: 0
+        left: 0
+        right: 0
+        text-align: center
+        font-size: 1.25rem
+        padding: calc($mtl-round / 2) 0
+        background-color: #000a
+        border-radius: 0 0 $mtl-round $mtl-round
+    .links
+      display: grid
+      grid-gap: $mtl-round
+    #galleries
+      grid-template-columns: 1fr 1fr
+    div
+      margin: calc($mtl-round * 2) 0
+      h1
+        font-size: 2rem
+        margin: calc($mtl-round * 2) 0
+      p
+        font-size: 1rem
+        max-width: 24rem
+        margin: calc($mtl-round * 2) auto
 </style>
 
 <script lang="ts" setup>
