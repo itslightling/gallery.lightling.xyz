@@ -9,11 +9,11 @@
         v-if="shouldRender"
         class="main"
       >
-        <h2>{{ title }} Gallery</h2>
+        <h1>{{ title }} Gallery</h1>
         <section
           class="gallery-nav"
         >
-          <h3>Navigation</h3>
+          <h2>Navigation</h2>
           <ul>
             <li
               v-for="section in galleryData"
@@ -46,7 +46,7 @@
           v-if="showContentIndicator"
           class="content-key"
         >
-          <h3>Content Level</h3>
+          <h2>Content Level</h2>
           <p>No indicator = assume Safe</p>
           <ul>
             <li>
@@ -72,41 +72,13 @@
         <section
           class="gallery"
         >
-          <h3>Gallery</h3>
-          <section
-            v-for="section in galleryData"
-            :key="section"
-            class="gallery-section"
-          >
-            <h4
-              :id="toAnchor(section.id)"
-            >
-              {{ section.id }}
-            </h4>
-            <section
-              v-for="subsection in section.subsections"
-              :key="subsection"
-              class="gallery-subsection"
-            >
-              <h5
-                :id="toAnchor(section.id + '_' + subsection.id)"
-              >
-                {{ subsection.id }}
-              </h5>
-              <div
-                class="gallery-grid"
-              >
-                <GalleryElement
-                  v-for="element in subsection.content"
-                  :key="element.title"
-                  :url="element.url"
-                  :title="element.title"
-                  :img="toImageLink(element.img)"
-                  :indicator="element.indicator"
-                />
-              </div>
-            </section>
-          </section>
+          <h2>Gallery</h2>
+          <GallerySection
+            v-for="(c, i) in galleryData"
+            :key="`section_${i}`"
+            :content-prop="c"
+            :level="0"
+          />
         </section>
       </section>
     </main>
@@ -141,12 +113,6 @@ main
       display: flex
       grid-gap: 0.5rem
       align-items: center
-
-.gallery-grid
-  display: grid
-  grid-template-columns: repeat(4, 1fr)
-  grid-gap: 1rem
-  margin-bottom: 2rem
 </style>
 
 <script lang="ts">
@@ -157,7 +123,7 @@ import VueCompositionAPI, {
   reactive,
 } from '@vue/composition-api'
 
-import GalleryElement from './GalleryElement.vue'
+import GallerySection from './GallerySection.vue'
 import ContentIndicator from '~/components/shared/ContentIndicator.vue'
 import Footer from '~/components/shared/Footer.vue'
 import Header from '~/components/shared/Header.vue'
@@ -169,7 +135,7 @@ Vue.use(VueCompositionAPI)
 export default defineComponent({
   name: 'Gallery',
   components: {
-    GalleryElement,
+    GallerySection,
     ContentIndicator,
     Footer,
     Header,
