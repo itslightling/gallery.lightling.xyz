@@ -32,7 +32,7 @@ import Indicator from 'types/Indicator'
 export default defineComponent({
   props: {
     indicator: {
-      type: Object as () => Indicator,
+      type: String,
       default: undefined,
     },
   },

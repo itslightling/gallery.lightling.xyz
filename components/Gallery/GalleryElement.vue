@@ -61,7 +61,6 @@
 import Vue from 'vue'
 import VueCompositionAPI, { defineComponent } from '@vue/composition-api'
 import ContentIndicator from '~/components/shared/ContentIndicator.vue'
-import Indicator from 'types/Indicator'
 
 Vue.use(VueCompositionAPI)
 
@@ -84,7 +83,7 @@ export default defineComponent({
       required: true,
     },
     indicator: {
-      type: Object as () => Indicator,
+      type: String,
       default: undefined,
     },
   },
