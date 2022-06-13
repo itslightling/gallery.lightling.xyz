@@ -14,22 +14,22 @@
     <h3
       v-if="level === 0"
     >
-      {{ content.id }}
+      {{ sanitizedId }}
     </h3>
     <h4
       v-else-if="level === 1"
     >
-      {{ content.id }}
+      {{ sanitizedId }}
     </h4>
     <h5
       v-else-if="level === 2"
     >
-      {{ content.id }}
+      {{ sanitizedId }}
     </h5>
     <h6
       v-else-if="level === 3"
     >
-      {{ content.id }}
+      {{ sanitizedId }}
     </h6>
     <div
       :class="{ grid : (content.content[0].img !== undefined) }"
@@ -38,7 +38,7 @@
         v-for="(c, i) in content.content"
         :key="`content_${level+1}_${i}`"
         :level="level + 1"
-        :content-prop="map(c, (other) => ({ ...other, id: content.id + c.id }))"
+        :content-prop="map(c, (other) => ({ ...other, id: `${content.id}_${c.id}` }))"
       />
     </div>
   </section>
@@ -93,6 +93,11 @@ export default defineComponent({
       })
     })
 
+    const sanitizedId = computed(() => {
+      const strArr = content.value.id.split('_')
+      return strArr[strArr.length - 1]
+    })
+
     const toImageLink = (str: String) => {
       return Defines.galleryDataLocation + '/' + str
     }
@@ -100,6 +105,7 @@ export default defineComponent({
     return {
       content,
       map,
+      sanitizedId,
       toImageLink,
     }
   },
