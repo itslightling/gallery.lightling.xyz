@@ -21,6 +21,7 @@
     </h1>
     <div>
       <p>Copyright (C) Lightling 2022</p>
+      <ThemeToggle />
     </div>
   </header>
 </template>
@@ -35,16 +36,26 @@ header
   justify-content: space-between
   h1
     color: $brand-dark-b
-  a
-    &:after
-      background-color: $brand-medium-a
+  > div
+    display: flex
+    align-items: center
+    grid-gap: $mtl-pad
+
+.dark
+  header
+    h1
+      color: $brand-light-a
 </style>
 
 <script>
 import { defineComponent } from '@vue/composition-api'
+import ThemeToggle from './ThemeToggle.vue'
 
 export default defineComponent({
   name: 'Header',
+  components: {
+    ThemeToggle,
+  },
   props: {
     title: {
       type: String,

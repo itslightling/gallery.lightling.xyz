@@ -68,6 +68,11 @@ h5
   margin-bottom: $mtl-pad
   margin-right: $mtl-pad
 
+.dark
+  h3,
+  h5
+    background-color: $brand-dark-a
+
 @media screen and (min-aspect-ratio: 15/9)
   .grid
     grid-template-columns: repeat(4, 1fr)
