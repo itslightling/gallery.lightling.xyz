@@ -47,9 +47,17 @@
 <style lang="sass" scoped>
 .grid
   display: grid
-  grid-template-columns: repeat(4, 1fr)
+  grid-template-columns: repeat(3, 1fr)
   grid-gap: 1rem
   margin-bottom: 2rem
+
+@media screen and (min-aspect-ratio: 15/9)
+  .grid
+    grid-template-columns: repeat(4, 1fr)
+
+@media screen and (orientation: portrait)
+  .grid
+    grid-template-columns: repeat(2, 1fr)
 </style>
 
 <script lang="ts">
