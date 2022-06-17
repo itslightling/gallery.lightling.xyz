@@ -1,5 +1,7 @@
 <template>
-  <header>
+  <header
+    class="general-container"
+  >
     <h1>
       <span
         v-if="subtitle"
@@ -17,6 +19,9 @@
         {{ title }}
       </span>
     </h1>
+    <div>
+      <p>Copyright (C) Lightling 2022</p>
+    </div>
   </header>
 </template>
 
@@ -24,11 +29,10 @@
 @import 'style/variables.sass'
 
 header
-  margin: 2rem
-  background-color: $brand-medium-a
-  padding: 2rem 4rem
-  text-align: center
-  border-radius: 2rem
+  margin-bottom: 0
+  display: flex
+  align-items: center
+  justify-content: space-between
   h1
     color: $brand-dark-b
   a
