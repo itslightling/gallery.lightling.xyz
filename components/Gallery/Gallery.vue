@@ -32,6 +32,10 @@
   .gallery
     flex: 1 1 100%
     height: calc(100vh - ($mtl-round * 8) - ($font-h1 * 2))
+
+@media screen and (max-width: 800px)
+  .gallery-nav
+    display: none
 </style>
 
 <script lang="ts">
