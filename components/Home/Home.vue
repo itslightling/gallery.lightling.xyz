@@ -137,6 +137,10 @@
         font-size: 1.2rem
         max-width: 24rem
         margin: calc($mtl-pad * 2) auto
+.dark
+  .content
+    main
+      background-color: $brand-dark-a
 </style>
 
 <script lang="ts" setup>
@@ -145,8 +149,6 @@ import VueCompositionAPI, { defineComponent, ref } from '@vue/composition-api'
 
 import GalleryLink from './GalleryLink.vue'
 import GalleryLinkWarning from './GalleryLinkWarning.vue'
-import Footer from '~/components/shared/Footer.vue'
-import Header from '~/components/shared/Header.vue'
 import SocialIconLink from '~/components/shared/SocialIconLink.vue'
 
 Vue.use(VueCompositionAPI)
@@ -156,53 +158,45 @@ export default defineComponent({
   components: {
     GalleryLink,
     GalleryLinkWarning,
-    Footer,
-    Header,
     SocialIconLink,
   },
   setup () {
     const currentTarget = ref('')
     const popupActive = ref(false)
 
-    const goToGallery = () => {
-      switch (currentTarget.value) {
-        case 'traditional':
-          location.href = 'gallery/traditional'
-          break
-        case 'digital':
-          location.href = 'gallery/digital'
-          break
-        case 'photography':
-          location.href = 'gallery/photo'
-          break
-        case 'anthro':
-          location.href = 'gallery/anthro'
-          break
-      }
-    }
-
-    const setAndGo = (title: string) => {
-      currentTarget.value = title
-      goToGallery()
-    }
-
-    const setAndWarn = (title: string) => {
-      currentTarget.value = title
-      popupActive.value = true
-    }
-
-    const disablePopup = () => {
-      popupActive.value = false
-    }
-
     return {
       currentTarget,
       popupActive,
-      goToGallery,
-      setAndGo,
-      setAndWarn,
-      disablePopup,
     }
+  },
+  methods: {
+    disablePopup () {
+      this.popupActive = false
+    },
+    setAndWarn (title: string) {
+      this.currentTarget = title
+      this.popupActive = true
+    },
+    setAndGo (title: string) {
+      this.currentTarget = title
+      this.goToGallery()
+    },
+    goToGallery () {
+      switch (this.currentTarget) {
+        case 'traditional':
+          this.$router.push({ path: 'gallery/traditional' })
+          break
+        case 'digital':
+          this.$router.push({ path: 'gallery/digital' })
+          break
+        case 'photography':
+          this.$router.push({ path: 'gallery/photo' })
+          break
+        case 'anthro':
+          this.$router.push({ path: 'gallery/anthro' })
+          break
+      }
+    },
   },
 })
 </script>

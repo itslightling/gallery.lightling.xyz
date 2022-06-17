@@ -8,6 +8,7 @@
       >
         <a
           href="/"
+          @click="redirectLink"
         >
           {{ title }}
         </a>
@@ -50,6 +51,7 @@ header
 <script>
 import { defineComponent } from '@vue/composition-api'
 import ThemeToggle from './ThemeToggle.vue'
+import { redirect } from '~/router'
 
 export default defineComponent({
   name: 'Header',
@@ -64,6 +66,12 @@ export default defineComponent({
     subtitle: {
       type: String,
       default: undefined,
+    },
+  },
+  methods: {
+    redirectLink (e) {
+      e.preventDefault()
+      this.$router.push({ path: e.target.pathname })
     },
   },
 })

@@ -37,6 +37,11 @@ a
   span
     flex: 1 1 auto
     font-size: 1.2rem
+
+.dark
+  a
+    background-color: $brand-light-a
+    color: $brand-dark-b
 </style>
 
 <script lang="ts">
