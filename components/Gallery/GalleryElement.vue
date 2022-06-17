@@ -6,13 +6,15 @@
       :href="url"
       :style="{ 'background-image': 'url(' + img + ')' }"
     >
-      <span>
-        {{ title }}
-      </span>
-      <ContentIndicator
-        v-if="indicator !== undefined"
-        :indicator="indicator"
-      />
+      <div>
+        <p>
+          {{ title }}
+        </p>
+        <ContentIndicator
+          v-if="indicator !== undefined"
+          :indicator="indicator"
+        />
+      </div>
     </a>
   </div>
 </template>
@@ -22,9 +24,6 @@
 
 .gallery-element
   height: 15rem
-  .color-code
-    position: absolute
-    margin: 0.25rem
   a
     height: 100%
     width: 100%
@@ -33,28 +32,37 @@
     line-height: 100%
     display: block
     position: relative
-    background-color: transparent
+    background-color: black
     background-position: center center
     background-repeat: no-repeat
-    background-size: cover
-    box-shadow: 0 0.5rem 1rem 0 #27404c
+    background-size: contain
     border: 2px lighten($brand-dark-a, 50%) solid
-    color: lighten($brand-dark-a, 50%)
+    color: $brand-bright-a
     border-radius: $mtl-round
     &:hover
       outline-color: lighten($brand-dark-a, 50%) !important
     &::after
       display: none
-    span
+    > div
       position: absolute
-      text-align: center
-      bottom: 1rem
+      bottom: 0
       left: 0
       right: 0
       padding: 0.5rem
-      background-color: #0009
+      height: 3rem
+      display: flex
+      justify-content: space-between
+      align-items: center
+      border-bottom-left-radius: $mtl-round
+      border-bottom-right-radius: $mtl-round
+      background-color: #000c
       backdrop-filter: blur(50px)
       -webkit-backdrop-filter: blur(50px)
+      .color-code
+        height: 2rem
+        flex: 0 0 5rem
+      p
+        flex: 1 1 100%
 </style>
 
 <script lang="ts">
