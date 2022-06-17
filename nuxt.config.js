@@ -28,6 +28,8 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    // https://vite.nuxtjs.org/getting-started/installation
+    'nuxt-vite',
     // https://www.npmjs.com/package/@nuxtjs/router
     '@nuxtjs/router',
     // https://go.nuxtjs.dev/typescript
