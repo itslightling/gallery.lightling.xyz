@@ -1,6 +1,6 @@
 <template>
   <header
-    class="general-container"
+    class="general-container with-background"
   >
     <h1>
       <span

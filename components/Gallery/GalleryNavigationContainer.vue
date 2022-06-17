@@ -1,6 +1,6 @@
 <template>
   <section
-    class="gallery-nav general-container"
+    class="gallery-nav general-container with-background"
   >
     <h2>Navigation</h2>
     <ul>

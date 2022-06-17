@@ -78,7 +78,8 @@ a
     transform: scaleX(1)
 
 .general-container
-  padding: calc($mtl-pad * 2)
   margin: calc($mtl-pad * 2)
-  border-radius: calc($mtl-round * 2)
-  background-color: $brand-light-a
+  &.with-background
+    border-radius: calc($mtl-round * 2)
+    background-color: $brand-light-a
+    padding: calc($mtl-pad * 2)

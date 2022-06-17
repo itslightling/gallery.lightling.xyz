@@ -20,12 +20,10 @@
 .gallery
   overflow-x: visible
   > div
-    margin: calc($mtl-pad * -1) calc($mtl-pad * -1) 0 calc($mtl-pad * -2)
     overflow-y: scroll
-    height: calc(100% + $mtl-pad * 2)
-    > h2,
-    > section
-      margin: calc($mtl-pad * 2)
+    height: 100%
+    > h2
+      display: none
 </style>
 
 <script lang="ts">

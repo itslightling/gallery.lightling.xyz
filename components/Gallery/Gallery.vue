@@ -31,7 +31,7 @@
     margin-left: 0
   .gallery
     flex: 1 1 100%
-    height: calc(100vh - ($mtl-round * 12) - ($font-h1 * 2))
+    height: calc(100vh - ($mtl-round * 8) - ($font-h1 * 2))
 </style>
 
 <script lang="ts">
