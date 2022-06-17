@@ -15,30 +15,11 @@
         >
           <h2>Navigation</h2>
           <ul>
-            <li
-              v-for="section in galleryData"
-              :key="section"
-            >
-              <a
-                :href="toAnchorLink(section.id)"
-              >
-                {{ section.id }}
-              </a>
-              <ul
-                v-if="section.subsections.length > 0"
-              >
-                <li
-                  v-for="subsection in section.subsections"
-                  :key="subsection"
-                >
-                  <a
-                    :href="toAnchorLink(section.id + '_' + subsection.id)"
-                  >
-                    {{ subsection.id }}
-                  </a>
-                </li>
-              </ul>
-            </li>
+            <GalleryNavigation
+              v-for="(c, i) in galleryData"
+              :key="`nav_${i}`"
+              :content-prop="c"
+            />
           </ul>
           <!--<content-indicators></content-indicators>-->
         </section>
@@ -124,6 +105,7 @@ import VueCompositionAPI, {
 } from '@vue/composition-api'
 
 import GallerySection from './GallerySection.vue'
+import GalleryNavigation from './GalleryNavigation.vue'
 import ContentIndicator from '~/components/shared/ContentIndicator.vue'
 import Footer from '~/components/shared/Footer.vue'
 import Header from '~/components/shared/Header.vue'
@@ -136,6 +118,7 @@ export default defineComponent({
   name: 'Gallery',
   components: {
     GallerySection,
+    GalleryNavigation,
     ContentIndicator,
     Footer,
     Header,
@@ -154,6 +137,7 @@ export default defineComponent({
     }
 
     const galleryData = reactive([])
+    const navigation = reactive([])
     const title = ref('loading')
 
     return {
@@ -161,6 +145,7 @@ export default defineComponent({
       toAnchorLink,
       toImageLink,
       galleryData,
+      navigation,
       title,
     }
   },

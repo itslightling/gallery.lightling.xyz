@@ -55,7 +55,7 @@
 <script lang="ts">
 import { defineComponent, computed } from '@vue/composition-api'
 import GalleryElement from './GalleryElement.vue'
-
+import { map } from '~/utilities/Map'
 import Defines from '~/defines'
 
 export default defineComponent({
@@ -74,9 +74,6 @@ export default defineComponent({
     },
   },
   setup (props: any) {
-    const map = (objIn: any, func: any) => {
-      return func(objIn)
-    }
     // temporarily converting old API to new API
     const content = computed(() => {
       return map(props.contentProp, (c: any) => {
