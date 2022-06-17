@@ -45,11 +45,28 @@
 </template>
 
 <style lang="sass" scoped>
+@import 'style/variables.sass'
+
+h3,
+h4,
+h5,
+h6
+  padding: $mtl-pad
+  border-radius: $mtl-round
+  border: 0.25rem solid $brand-medium-a
+  margin-bottom: $mtl-pad
+  margin-right: $mtl-pad
+
+h3,
+h5
+  background-color: $brand-light-a
+
 .grid
   display: grid
   grid-template-columns: repeat(3, 1fr)
   grid-gap: 1rem
-  margin-bottom: 2rem
+  margin-bottom: $mtl-pad
+  margin-right: $mtl-pad
 
 @media screen and (min-aspect-ratio: 15/9)
   .grid
