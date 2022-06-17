@@ -9,7 +9,7 @@
         >
           {{ title }}
         </a>
-        | {{ subtitle }}
+        / {{ subtitle }}
       </span>
       <span
         v-else
@@ -24,13 +24,14 @@
 @import 'style/variables.sass'
 
 header
-  background-color: $brand-dark-a
+  margin: 2rem
+  background-color: $brand-medium-a
   padding: 2rem 4rem
   text-align: center
+  border-radius: 2rem
   h1
-    color: $brand-bright-a
+    color: $brand-dark-b
   a
-    color: $brand-medium-a
     &:after
       background-color: $brand-medium-a
 </style>
