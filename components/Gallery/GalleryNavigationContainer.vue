@@ -1,6 +1,6 @@
 <template>
   <section
-    class="gallery-nav"
+    class="gallery-nav general-container"
   >
     <h2>Navigation</h2>
     <ul>
@@ -15,7 +15,16 @@
 </template>
 
 <style lang="sass" scoped>
+@import 'style/variables.sass'
 
+ul::v-deep
+  padding-left: 0
+  font-size: $font-p
+  list-style: none
+  li
+    ul
+      list-style: none
+      padding-left: $font-p
 </style>
 
 <script lang="ts">

@@ -23,6 +23,15 @@
 <style lang="sass" scoped>
 @import 'style/variables.sass'
 
+.main
+  display: flex
+  flex-direction: row-reverse
+  .gallery-nav
+    flex: 0 0 12rem
+    margin-left: 0
+  .gallery
+    flex: 1 1 100%
+    height: calc(100vh - ($mtl-round * 12) - ($font-h1 * 2))
 </style>
 
 <script lang="ts">
