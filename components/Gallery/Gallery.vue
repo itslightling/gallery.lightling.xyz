@@ -9,91 +9,20 @@
         v-if="shouldRender"
         class="main"
       >
-        <h1>{{ title }} Gallery</h1>
-        <section
-          class="gallery-nav"
-        >
-          <h2>Navigation</h2>
-          <ul>
-            <GalleryNavigation
-              v-for="(c, i) in galleryData"
-              :key="`nav_${i}`"
-              :content-prop="c"
-            />
-          </ul>
-          <!--<content-indicators></content-indicators>-->
-        </section>
-        <section
-          v-if="showContentIndicator"
-          class="content-key"
-        >
-          <h2>Content Level</h2>
-          <p>No indicator = assume Safe</p>
-          <ul>
-            <li>
-              <ContentIndicator
-                indicator="Safe"
-              />
-              <span> Safe </span>
-            </li>
-            <li>
-              <ContentIndicator
-                indicator="Mature"
-              />
-              <span> Mature </span>
-            </li>
-            <li>
-              <ContentIndicator
-                indicator="Adult"
-              />
-              <span> Adult </span>
-            </li>
-          </ul>
-        </section>
-        <section
-          class="gallery"
-        >
-          <h2>Gallery</h2>
-          <GallerySection
-            v-for="(c, i) in galleryData"
-            :key="`section_${i}`"
-            :content-prop="c"
-            :level="0"
-          />
-        </section>
+        <GalleryNavigationContainer
+          :gallery-data="galleryData"
+        />
+        <GallerySectionContainer
+          :gallery-data="galleryData"
+        />
       </section>
     </main>
-    <Footer />
   </div>
 </template>
 
 <style lang="sass" scoped>
 @import 'style/variables.sass'
 
-main
-  background-color: $brand-light-a
-  padding: 2rem
-  h2,
-  h3,
-  h4,
-  h5
-    margin-bottom: 1rem
-  section
-    margin: auto
-  p,
-  span,
-  a
-    font-size: 1.25rem
-
-.content-key
-  ul
-    list-style: none
-    padding-left: 0
-    li
-      margin: $mtl-round 0
-      display: flex
-      grid-gap: 0.5rem
-      align-items: center
 </style>
 
 <script lang="ts">
@@ -104,10 +33,8 @@ import VueCompositionAPI, {
   reactive,
 } from '@vue/composition-api'
 
-import GallerySection from './GallerySection.vue'
-import GalleryNavigation from './GalleryNavigation.vue'
-import ContentIndicator from '~/components/shared/ContentIndicator.vue'
-import Footer from '~/components/shared/Footer.vue'
+import GallerySectionContainer from './GallerySectionContainer.vue'
+import GalleryNavigationContainer from './GalleryNavigationContainer.vue'
 import Header from '~/components/shared/Header.vue'
 
 import Defines from '~/defines'
@@ -117,10 +44,8 @@ Vue.use(VueCompositionAPI)
 export default defineComponent({
   name: 'Gallery',
   components: {
-    GallerySection,
-    GalleryNavigation,
-    ContentIndicator,
-    Footer,
+    GallerySectionContainer,
+    GalleryNavigationContainer,
     Header,
   },
   setup () {
@@ -152,12 +77,10 @@ export default defineComponent({
   data () {
     return {
       shouldRender: false,
-      showContentIndicator: false,
     }
   },
   mounted () {
     const route = this.$route.path.replace('/gallery/', '')
-    this.showContentIndicator = route === 'anthro' || route === 'digital'
     this.title = route.charAt(0).toUpperCase() + route.slice(1)
     fetch(`${Defines.galleryDataLocation}/${route}.json`, {
       mode: 'cors',
