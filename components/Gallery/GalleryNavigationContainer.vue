@@ -17,6 +17,9 @@
 <style lang="sass" scoped>
 @import 'style/variables.sass'
 
+section
+  overflow-y: auto
+
 ul::v-deep
   padding-left: 0
   font-size: $font-p

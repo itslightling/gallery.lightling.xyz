@@ -29,6 +29,7 @@
   .gallery-nav
     flex: 0 0 12rem
     margin-left: 0
+    height: calc(100vh - ($mtl-round * 12) - ($font-h1 * 2))
   .gallery
     flex: 1 1 100%
     height: calc(100vh - ($mtl-round * 8) - ($font-h1 * 2))
