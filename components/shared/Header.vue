@@ -51,7 +51,6 @@ header
 <script>
 import { defineComponent } from '@vue/composition-api'
 import ThemeToggle from './ThemeToggle.vue'
-import { redirect } from '~/router'
 
 export default defineComponent({
   name: 'Header',
