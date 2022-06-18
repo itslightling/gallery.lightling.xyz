@@ -51,19 +51,11 @@
         class="links"
       >
         <SocialIconLink
-          src="images/places/da.svg"
-          title="Deviant Art"
-          href="https://www.deviantart.com/xlightling"
-        />
-        <SocialIconLink
-          src="images/places/rb.svg"
-          title="Red Bubble"
-          href="https://www.redbubble.com/people/lightling/shop?asc=u"
-        />
-        <SocialIconLink
-          src="images/places/fa.svg"
-          title="Fur Affinity"
-          href="https://www.furaffinity.net/user/lightling/"
+          v-for="(c, i) in contentSocial"
+          :key="`social_${i}`"
+          :src="c.src"
+          :title="c.title"
+          :href="c.href"
         />
       </div>
       <div
@@ -168,7 +160,7 @@ import VueCompositionAPI, { defineComponent, ref } from '@vue/composition-api'
 import GalleryLink from './GalleryLink.vue'
 import GalleryLinkWarning from './GalleryLinkWarning.vue'
 import SocialIconLink from '~/components/shared/SocialIconLink.vue'
-import { About } from '~/content/Home'
+import { About, Social } from '~/content/Home'
 
 Vue.use(VueCompositionAPI)
 
@@ -183,9 +175,11 @@ export default defineComponent({
     const currentTarget = ref('')
     const popupActive = ref(false)
     const contentAbout = ref(About)
+    const contentSocial = ref(Social)
 
     return {
       contentAbout,
+      contentSocial,
       currentTarget,
       popupActive,
     }

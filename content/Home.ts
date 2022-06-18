@@ -7,3 +7,21 @@ export const About = [
   'Various galleries may have a different focus between themselves, ' +
   'so I have unified them here. ',
 ]
+
+export const Social = [
+  {
+    src: 'images/places/da.svg',
+    title: 'Deviant Art',
+    href: 'https://www.deviantart.com/xlightling',
+  },
+  {
+    src: 'images/places/rb.svg',
+    title: 'Red Bubble',
+    href: 'https://www.redbubble.com/people/lightling/shop?asc=u',
+  },
+  {
+    src: 'images/places/fa.svg',
+    title: 'Fur Affinity',
+    href: 'https://www.furaffinity.net/user/lightling/',
+  },
+]
