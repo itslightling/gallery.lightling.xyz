@@ -1,159 +1,174 @@
 <template>
-  <div>
-    <Header
-      title="LightGallery"
-    />
+  <div
+    class="content"
+  >
     <main>
-      <section
-        id="about"
+      <div
+        id="avatar"
       >
-        <h2>About</h2>
-        <p
-          class="txt-lg"
-        >
-          Developer // Composer // Artist
-        </p>
-        <p>
-          You're likely here for that last one. My art can be found in a variety
-          of places:
-        </p>
-        <div
-          class="icons"
-        >
-          <SocialIconLink
-            src="images/places/da.svg"
-            title="Deviant Art"
-            href="https://www.deviantart.com/xlightling"
-          />
-          <SocialIconLink
-            src="images/places/rb.svg"
-            title="Red Bubble"
-            href="https://www.redbubble.com/people/lightling/shop?asc=u"
-          />
-          <SocialIconLink
-            src="images/places/fa.svg"
-            title="Fur Affinity"
-            href="https://www.furaffinity.net/user/lightling/"
-          />
-        </div>
-        <p>
-          Here, however, you can find galleries for full-resolution/alternative
-          versions for artwork that are not available on the above sites. If you
-          wish to support my art (or my other work), please consider using my
-          <a
-            href="https://ko-fi.com/lightling"
-          >Ko-Fi</a>
-          or buying a print from my
-          <a
-            href="https://www.redbubble.com/people/lightling/shop?asc=u"
-          >Redbubble</a>!
-        </p>
-        <p>
-          <span>
-            Contact email:
-            <a
-              href="mailto:contactlightling@gmail.com"
-            >contactlightling@gmail.com</a>
-          </span>
-          <br />
-          <span>
-            Home site:
-            <a
-              href="https://lightling.xyz/"
-            >lightling.xyz</a>
-          </span>
-          <br />
-        </p>
-        <p>
-          I make music too! Consider supporting me by buying my music at
-          <a
-            href="https://lightling.bandcamp.com/"
-          >Bandcamp</a>.
-        </p>
-        <p>
-          For me, music and art are hobbies. My main field of work is in
-          programming (particularly gameplay and frontend/fullstack). I'm
-          currently seeking employment. I may periodically be inactive with
-          art/music to work on projects or work. I may eventually set up Patreon
-          for my development work, and I do have stuff available as PWYW on
-          <a
-            href="https://goldenwere.itch.io/"
-          >itch.io</a>.
-        </p>
-      </section>
-      <section
-        id="gallery"
+        <span>{{ contentUtility.avatarLabel }}</span>
+      </div>
+      <div>
+        <h1>{{ contentUtility.heading }}</h1>
+      </div>
+      <div
+        id="galleries"
+        class="links"
       >
-        <h2>Gallery</h2>
-        <div
-          class="links"
-        >
-          <GalleryLink
-            element="traditional"
-            @click="setAndGo('traditional')"
-          />
-          <GalleryLink
-            element="digital"
-            @click="setAndWarn('digital')"
-          />
-          <GalleryLink
-            element="photography"
-            @click="setAndGo('photography')"
-          />
-          <GalleryLink
-            element="anthro"
-            @click="setAndWarn('anthro')"
-          />
-        </div>
+        <!--
+          TODO: Update API to allow for dynamic linking of galleries;
+          essentially an index.json to match with gallery index.html (Home.vue)
+        -->
+        <GalleryLink
+          element="traditional"
+          @click="setAndGo('traditional')"
+        />
+        <GalleryLink
+          element="digital"
+          @click="setAndWarn('digital')"
+        />
+        <GalleryLink
+          element="photography"
+          @click="setAndGo('photography')"
+        />
+        <GalleryLink
+          element="anthro"
+          @click="setAndWarn('anthro')"
+        />
         <GalleryLinkWarning
           v-if="popupActive"
           @disable="disablePopup()"
           @acknowledge="goToGallery()"
         />
-      </section>
+      </div>
+      <div
+        id="about"
+      >
+        <p
+          v-for="(c, i) in contentAbout"
+          :key="`about_${i}`"
+          v-html="c"
+        />
+      </div>
+      <div
+        id="social"
+        class="links"
+      >
+        <SocialIconLink
+          v-for="(c, i) in contentSocial"
+          :key="`social_${i}`"
+          :src="c.src"
+          :title="c.title"
+          :href="c.href"
+        />
+      </div>
+      <div
+        id="footer"
+      >
+        <p>{{ contentUtility.copyright }}</p>
+      </div>
     </main>
-    <Footer />
   </div>
 </template>
 
 <style lang="sass" scoped>
 @import 'style/variables.sass'
 
-main
-  background-color: $brand-light-a
-  padding: 2rem
-  section
-    max-width: 42rem
-    margin: auto
-    p
-      margin-bottom: 1rem
-
-.icons
-  margin: 1rem
-  display: flex
-  height: 6rem
-  justify-content: center
-  grid-gap: 1rem
-  &>*
-    flex: 0 0 6rem
-
-#gallery
-  .links
-    margin-top: 2rem
+.content
+  background-image: url('/images/home/photography.jpg')
+  background-size: cover
+  background-position: center center
+  height: 100vh
+  width: 100vw
+  overflow: hidden
+  main
+    background-color: $brand-light-a
+    position: fixed
+    right: 0
+    top: 0
+    bottom: 0
+    width: 36rem
+    overflow-y: scroll
     display: grid
-    grid-template-columns: repeat(2, 1fr)
-    grid-gap: 1rem
+    justify-items: center
+    align-items: center
+    grid-gap: calc($mtl-pad * 2)
+    padding: calc($mtl-pad * 2) 0
+    #avatar
+      position: relative
+      background-image: url('/images/v1-official.svg')
+      background-size: cover
+      background-position: center center
+      background-color: $brand-bright-a
+      height: 12rem
+      width: 12rem
+      border-radius: $mtl-round
+      span
+        color: $brand-bright-a
+        position: absolute
+        bottom: 0
+        left: 0
+        right: 0
+        text-align: center
+        font-size: 1.25rem
+        padding: calc($mtl-pad / 2) 0
+        background-color: #000a
+        border-radius: 0 0 $mtl-round $mtl-round
+    .links
+      display: grid
+      grid-gap: $mtl-pad
+    #galleries
+      grid-template-columns: repeat(2, 1fr)
+      width: 90%
+    #social
+      width: 90%
+    div
+      h1
+        font-size: 2rem
+        margin: calc($mtl-pad * 2) 0
+      p
+        font-size: 1.2rem
+        max-width: 24rem
+        margin: calc($mtl-pad * 2) auto
+.dark
+  .content
+    main
+      background-color: $brand-dark-a
+
+@media screen and (orientation: portrait)
+  .content
+    main
+      width: 90vw
+      padding: 0 1rem
+      left: calc(5vw - 1rem)
+      right: calc(5vw - 1rem)
+      #galleries
+        grid-template-columns: repeat(1, 1fr)
+        width: 100%
+
+@media screen and (max-width: 420px)
+  .content
+    main
+      width: 95vw
+      left: calc(2.5vw - 1rem)
+      right: calc(2.5vw - 1rem)
+      #social
+        grid-template-columns: repeat(3, 1fr)
+        width: 100%
 </style>
 
 <script lang="ts" setup>
 import Vue from 'vue'
-import VueCompositionAPI, { defineComponent, ref } from '@vue/composition-api'
+import VueCompositionAPI, {
+  defineComponent, ref,
+} from '@vue/composition-api'
 
 import GalleryLink from './GalleryLink.vue'
 import GalleryLinkWarning from './GalleryLinkWarning.vue'
-import Footer from '~/components/shared/Footer.vue'
-import Header from '~/components/shared/Header.vue'
 import SocialIconLink from '~/components/shared/SocialIconLink.vue'
+import {
+  About, Social, Utility,
+} from '~/content/Home'
 
 Vue.use(VueCompositionAPI)
 
@@ -162,53 +177,59 @@ export default defineComponent({
   components: {
     GalleryLink,
     GalleryLinkWarning,
-    Footer,
-    Header,
     SocialIconLink,
   },
   setup () {
     const currentTarget = ref('')
     const popupActive = ref(false)
-
-    const goToGallery = () => {
-      switch (currentTarget.value) {
-        case 'traditional':
-          location.href = 'gallery/traditional'
-          break
-        case 'digital':
-          location.href = 'gallery/digital'
-          break
-        case 'photography':
-          location.href = 'gallery/photo'
-          break
-        case 'anthro':
-          location.href = 'gallery/anthro'
-          break
-      }
-    }
-
-    const setAndGo = (title: string) => {
-      currentTarget.value = title
-      goToGallery()
-    }
-
-    const setAndWarn = (title: string) => {
-      currentTarget.value = title
-      popupActive.value = true
-    }
-
-    const disablePopup = () => {
-      popupActive.value = false
-    }
+    const contentAbout = ref(About)
+    const contentSocial = ref(Social)
+    const contentUtility = ref(Utility)
 
     return {
+      contentAbout,
+      contentUtility,
+      contentSocial,
       currentTarget,
       popupActive,
-      goToGallery,
-      setAndGo,
-      setAndWarn,
-      disablePopup,
     }
+  },
+  methods: {
+    disablePopup () {
+      this.popupActive = false
+    },
+    setAndWarn (title: string) {
+      this.currentTarget = title
+      this.popupActive = true
+    },
+    setAndGo (title: string) {
+      this.currentTarget = title
+      this.goToGallery()
+    },
+    goToGallery () {
+      switch (this.currentTarget) {
+        case 'traditional':
+          this.$router.push({
+            path: 'gallery/traditional',
+          })
+          break
+        case 'digital':
+          this.$router.push({
+            path: 'gallery/digital',
+          })
+          break
+        case 'photography':
+          this.$router.push({
+            path: 'gallery/photo',
+          })
+          break
+        case 'anthro':
+          this.$router.push({
+            path: 'gallery/anthro',
+          })
+          break
+      }
+    },
   },
 })
 </script>

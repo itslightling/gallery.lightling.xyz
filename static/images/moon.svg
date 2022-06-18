@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="500mm"
+   height="500mm"
+   viewBox="0 0 500 500"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="moon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="powerclip"
+       id="path-effect1081"
+       is_visible="true"
+       lpeversion="1"
+       inverse="true"
+       flatten="false"
+       hide_clip="false"
+       message="Use fill-rule evenodd on &lt;b&gt;fill and stroke&lt;/b&gt; dialog if no flatten result after convert clip to paths." />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1077">
+      <circle
+         style="display:none;fill:#000000;fill-opacity:1;stroke-width:9.99998;stroke-linecap:round;stroke-linejoin:round"
+         id="circle1079"
+         cx="425"
+         cy="125"
+         r="225"
+         d="M 650,125 A 225,225 0 0 1 425,350 225,225 0 0 1 200,125 225,225 0 0 1 425,-100 225,225 0 0 1 650,125 Z" />
+      <path
+         id="lpe_path-effect1081"
+         style="fill:#000000;fill-opacity:1;stroke-width:9.99998;stroke-linecap:round;stroke-linejoin:round"
+         class="powerclip"
+         d="M -5,-5 H 505 V 505 H -5 Z M 650,125 A 225,225 0 0 0 425,-100 225,225 0 0 0 200,125 225,225 0 0 0 425,350 225,225 0 0 0 650,125 Z" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#000000"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.24748737"
+     inkscape:cx="765.69563"
+     inkscape:cy="537.40115"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="true"
+     inkscape:pagecheckerboard="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid10"
+       units="mm"
+       spacingx="1"
+       spacingy="1"
+       dotted="false"
+       snapvisiblegridlinesonly="true" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#ffffff;stroke-width:10;stroke-linecap:round;stroke-linejoin:round"
+       id="path845"
+       clip-path="url(#clipPath1077)"
+       inkscape:path-effect="#path-effect1081"
+       sodipodi:type="arc"
+       sodipodi:cx="250"
+       sodipodi:cy="250"
+       sodipodi:rx="250"
+       sodipodi:ry="250"
+       d="M 500,250 A 250,250 0 0 1 250,500 250,250 0 0 1 0,250 250,250 0 0 1 250,0 250,250 0 0 1 500,250 Z" />
+  </g>
+</svg>

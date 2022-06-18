@@ -1,4 +1,6 @@
-import { createRouter } from './router'
+import {
+  createRouter,
+} from './router'
 
 describe('createRouter', () => {
   let wrapper

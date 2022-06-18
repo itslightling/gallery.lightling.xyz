@@ -1,9 +1,14 @@
 @import 'variables.sass'
 
 body
-  background-color: $brand-dark-b
+  background-color: $brand-faint-a
   color: $brand-dark-b
   font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif
+
+::selection,
+::-moz-selection
+  background-color: $brand-dark-b
+  color: $brand-bright-a
 
 button,
 a
@@ -37,17 +42,17 @@ h6
   font-style: italic
 
 h1
-  font-size: 2.5rem
+  font-size: $font-h1
 h2
-  font-size: 2.33rem
+  font-size: $font-h2
 h3
-  font-size: 2rem
+  font-size: $font-h3
 h4
-  font-size: 1.75rem
+  font-size: $font-h4
 h5
-  font-size: 1.5rem
+  font-size: $font-h5
 p
-  font-size: 1.25rem
+  font-size: $font-p
   margin: 0
 
 a
@@ -56,7 +61,7 @@ a
   text-decoration: none
   font-weight: bold
   transition: all 0.3s cubic-bezier(0.065, 0.950, 0.500, 0.930) 0s
-  &:after
+  &::after
     content: ""
     position: absolute
     width: 100%
@@ -68,6 +73,24 @@ a
     visibility: hidden
     transform: scaleX(0)
     transition: all 0.3s cubic-bezier(0.065, 0.950, 0.500, 0.930)
-  &:hover:after
+  &:hover::after
     visibility: visible
     transform: scaleX(1)
+
+.general-container
+  margin: calc($mtl-pad * 2)
+  &.with-background
+    border-radius: calc($mtl-round * 2)
+    background-color: $brand-light-a
+    padding: calc($mtl-pad * 2)
+
+.dark
+  background-color: $brand-dark-b
+  color: $brand-faint-a
+  a
+    color: $brand-medium-a
+    &::after
+      background-color: $brand-medium-a
+  .general-container
+    &.with-background
+      background-color: $brand-dark-a
