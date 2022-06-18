@@ -6,15 +6,19 @@
       <div
         id="avatar"
       >
-        <span>Lightling</span>
+        <span>{{ contentUtility.avatarLabel }}</span>
       </div>
       <div>
-        <h1>LightGallery | Home</h1>
+        <h1>{{ contentUtility.heading }}</h1>
       </div>
       <div
         id="galleries"
         class="links"
       >
+        <!--
+          TODO: Update API to allow for dynamic linking of galleries;
+          essentially an index.json to match with gallery index.html (Home.vue)
+        -->
         <GalleryLink
           element="traditional"
           @click="setAndGo('traditional')"
@@ -61,7 +65,7 @@
       <div
         id="footer"
       >
-        <p>Copyright (C) Lightling 2014-2022</p>
+        <p>{{ contentUtility.copyright }}</p>
       </div>
     </main>
   </div>
@@ -160,7 +164,7 @@ import VueCompositionAPI, { defineComponent, ref } from '@vue/composition-api'
 import GalleryLink from './GalleryLink.vue'
 import GalleryLinkWarning from './GalleryLinkWarning.vue'
 import SocialIconLink from '~/components/shared/SocialIconLink.vue'
-import { About, Social } from '~/content/Home'
+import { About, Social, Utility } from '~/content/Home'
 
 Vue.use(VueCompositionAPI)
 
@@ -176,9 +180,11 @@ export default defineComponent({
     const popupActive = ref(false)
     const contentAbout = ref(About)
     const contentSocial = ref(Social)
+    const contentUtility = ref(Utility)
 
     return {
       contentAbout,
+      contentUtility,
       contentSocial,
       currentTarget,
       popupActive,

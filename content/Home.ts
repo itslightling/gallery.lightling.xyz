@@ -25,3 +25,9 @@ export const Social = [
     href: 'https://www.furaffinity.net/user/lightling/',
   },
 ]
+
+export const Utility = {
+  copyright: 'Copyright (C) Lightling 2014-2022',
+  avatarLabel: 'Lightling',
+  heading: 'LightGallery | Home',
+}
