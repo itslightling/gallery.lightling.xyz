@@ -37,7 +37,9 @@
           @acknowledge="goToGallery()"
         />
       </div>
-      <div>
+      <div
+        id="about"
+      >
         <p>
           I'm Lightling, a developer who creates art and music
           when I have the time.
@@ -125,7 +127,7 @@
       display: grid
       grid-gap: $mtl-pad
     #galleries
-      grid-template-columns: 1fr 1fr
+      grid-template-columns: repeat(2, 1fr)
       width: 90%
     #social
       width: 90%
@@ -141,6 +143,27 @@
   .content
     main
       background-color: $brand-dark-a
+
+@media screen and (orientation: portrait)
+  .content
+    main
+      width: 90vw
+      padding: 0 1rem
+      left: calc(5vw - 1rem)
+      right: calc(5vw - 1rem)
+      #galleries
+        grid-template-columns: repeat(1, 1fr)
+        width: 100%
+
+@media screen and (max-width: 420px)
+  .content
+    main
+      width: 95vw
+      left: calc(2.5vw - 1rem)
+      right: calc(2.5vw - 1rem)
+      #social
+        grid-template-columns: repeat(3, 1fr)
+        width: 100%
 </style>
 
 <script lang="ts" setup>
