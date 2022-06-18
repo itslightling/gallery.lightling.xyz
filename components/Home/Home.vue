@@ -40,16 +40,11 @@
       <div
         id="about"
       >
-        <p>
-          I'm Lightling, a developer who creates art and music
-          when I have the time.
-        </p>
-        <p>
-          This site acts as a singular spot to link all of my art,
-          which is hosted externally.
-          Various galleries may have a different focus between themselves,
-          so I have unified them here.
-        </p>
+        <p
+          v-for="(c, i) in contentAbout"
+          :key="`about_${i}`"
+          v-html="c"
+        />
       </div>
       <div
         id="social"
@@ -173,6 +168,7 @@ import VueCompositionAPI, { defineComponent, ref } from '@vue/composition-api'
 import GalleryLink from './GalleryLink.vue'
 import GalleryLinkWarning from './GalleryLinkWarning.vue'
 import SocialIconLink from '~/components/shared/SocialIconLink.vue'
+import { About } from '~/content/Home'
 
 Vue.use(VueCompositionAPI)
 
@@ -186,8 +182,10 @@ export default defineComponent({
   setup () {
     const currentTarget = ref('')
     const popupActive = ref(false)
+    const contentAbout = ref(About)
 
     return {
+      contentAbout,
       currentTarget,
       popupActive,
     }
