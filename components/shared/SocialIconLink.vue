@@ -42,6 +42,12 @@ a
   a
     background-color: $brand-light-a
     color: $brand-dark-b
+
+@media screen and (max-width: 420px)
+  a
+    width: unset
+    span
+      display: none
 </style>
 
 <script lang="ts">
