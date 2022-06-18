@@ -159,12 +159,16 @@
 
 <script lang="ts" setup>
 import Vue from 'vue'
-import VueCompositionAPI, { defineComponent, ref } from '@vue/composition-api'
+import VueCompositionAPI, {
+  defineComponent, ref,
+} from '@vue/composition-api'
 
 import GalleryLink from './GalleryLink.vue'
 import GalleryLinkWarning from './GalleryLinkWarning.vue'
 import SocialIconLink from '~/components/shared/SocialIconLink.vue'
-import { About, Social, Utility } from '~/content/Home'
+import {
+  About, Social, Utility,
+} from '~/content/Home'
 
 Vue.use(VueCompositionAPI)
 
@@ -205,16 +209,24 @@ export default defineComponent({
     goToGallery () {
       switch (this.currentTarget) {
         case 'traditional':
-          this.$router.push({ path: 'gallery/traditional' })
+          this.$router.push({
+            path: 'gallery/traditional',
+          })
           break
         case 'digital':
-          this.$router.push({ path: 'gallery/digital' })
+          this.$router.push({
+            path: 'gallery/digital',
+          })
           break
         case 'photography':
-          this.$router.push({ path: 'gallery/photo' })
+          this.$router.push({
+            path: 'gallery/photo',
+          })
           break
         case 'anthro':
-          this.$router.push({ path: 'gallery/anthro' })
+          this.$router.push({
+            path: 'gallery/anthro',
+          })
           break
       }
     },

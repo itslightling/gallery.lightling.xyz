@@ -31,8 +31,12 @@
 </style>
 
 <script lang="ts">
-import { defineComponent, computed } from '@vue/composition-api'
-import { map } from '~/utilities/Map'
+import {
+  defineComponent, computed,
+} from '@vue/composition-api'
+import {
+  map,
+} from '~/utilities/Map'
 
 export default defineComponent({
   name: 'GalleryNavigation',

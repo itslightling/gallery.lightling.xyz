@@ -83,9 +83,13 @@ h5
 </style>
 
 <script lang="ts">
-import { defineComponent, computed } from '@vue/composition-api'
+import {
+  defineComponent, computed,
+} from '@vue/composition-api'
 import GalleryElement from './GalleryElement.vue'
-import { map } from '~/utilities/Map'
+import {
+  map,
+} from '~/utilities/Map'
 import Defines from '~/defines'
 
 export default defineComponent({

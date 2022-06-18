@@ -67,7 +67,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import VueCompositionAPI, { defineComponent } from '@vue/composition-api'
+import VueCompositionAPI, {
+  defineComponent,
+} from '@vue/composition-api'
 import ContentIndicator from '~/components/shared/ContentIndicator.vue'
 
 Vue.use(VueCompositionAPI)

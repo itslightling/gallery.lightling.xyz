@@ -49,7 +49,9 @@ header
 </style>
 
 <script>
-import { defineComponent } from '@vue/composition-api'
+import {
+  defineComponent,
+} from '@vue/composition-api'
 import ThemeToggle from './ThemeToggle.vue'
 
 export default defineComponent({
@@ -70,7 +72,9 @@ export default defineComponent({
   methods: {
     redirectLink (e) {
       e.preventDefault()
-      this.$router.push({ path: e.target.pathname })
+      this.$router.push({
+        path: e.target.pathname,
+      })
     },
   },
 })

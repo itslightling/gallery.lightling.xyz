@@ -24,6 +24,22 @@ module.exports = {
       functions: 'always-multiline',
     }],
     'arrow-parens': ['error', 'always'],
+    'object-curly-newline': [
+      'error',
+      {
+        ObjectExpression: 'always',
+        ObjectPattern: {
+          multiline: false,
+        },
+        ImportDeclaration: 'always',
+        ExportDeclaration: 'always',
+      },
+    ],
+    'object-property-newline': [
+      'error', {
+        allowAllPropertiesOnSameLine: false,
+      },
+    ],
     'vue/multi-word-component-names': 'off',
     'vue/component-tags-order': [
       'error',
