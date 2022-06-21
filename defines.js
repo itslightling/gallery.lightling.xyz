@@ -1,4 +1,4 @@
-const galleryDataLocation = 'https://lightgallerydata.surge.sh'
+const galleryDataLocation = '/data'
 
 export default {
   galleryDataLocation,

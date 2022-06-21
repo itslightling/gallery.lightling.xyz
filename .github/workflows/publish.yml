@@ -48,10 +48,10 @@ jobs:
       - name: Run build
         run: npm run generate
 
-      - name: Publish to surge
-        uses: goldenwere/actions/actions/surge-publish@main
+      - name: Publish to neocities
+        uses: bcomnes/deploy-to-neocities@v1
         with:
-          surgeLogin: ${{ secrets.SURGE_LOGIN }}
-          surgeToken: ${{ secrets.SURGE_TOKEN }}
-          surgeProject: 'dist'
-          surgeURL: 'lightgallery.surge.sh'
+          api_token: ${{ secrets.NEOCITIES_API_TOKEN }}
+          cleanup: false
+          dist_dir: 'dist'
+          protected_files: 'data/*'
