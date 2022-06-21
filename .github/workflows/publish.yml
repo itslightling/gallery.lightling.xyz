@@ -42,9 +42,6 @@ jobs:
       - name: Run tests 🧪
         run: npm run test
 
-      - name: Install surge
-        run: npm install --save-dev surge
-
       - name: Run build
         run: npm run generate
 
@@ -54,4 +51,4 @@ jobs:
           api_token: ${{ secrets.NEOCITIES_API_TOKEN }}
           cleanup: false
           dist_dir: 'dist'
-          protected_files: 'data/*'
+          protected_files: 'data/**'
