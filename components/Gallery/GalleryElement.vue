@@ -63,6 +63,13 @@
         flex: 0 0 5rem
       p
         flex: 1 1 100%
+@media screen and (max-width: 500px)
+  .gallery-element
+    a
+      > div
+        .color-code
+          height: 1.5rem
+          flex: 0 0 3rem
 </style>
 
 <script lang="ts">

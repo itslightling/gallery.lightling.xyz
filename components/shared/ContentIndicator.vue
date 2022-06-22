@@ -34,6 +34,11 @@
   &.cc-adult
     background-color: rgb(155,0,100)
     background-image: repeating-linear-gradient(49deg, rgb(150,0,80), rgb(150,0,80) 0.24rem, rgb(80,0,30) 0.25rem, rgb(80,0,30) 0.49rem)
+
+@media screen and (max-width: 500px)
+  .color-code
+    p
+      font-size: 0.8rem
 </style>
 
 <script lang="ts">
