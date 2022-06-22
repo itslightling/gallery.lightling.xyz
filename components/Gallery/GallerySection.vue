@@ -84,13 +84,9 @@ h5
 
 <script lang="ts">
 import {
-  defineComponent, computed,
+  defineComponent, ref, computed,
 } from '@vue/composition-api'
 import GalleryElement from './GalleryElement.vue'
-import {
-  // eslint-disable-next-line camelcase
-  compability__1_0_0__2_0_0,
-} from '~/utilities/compatibility'
 import {
   map,
 } from '~/utilities/transform'
@@ -112,10 +108,7 @@ export default defineComponent({
     },
   },
   setup (props: any) {
-    // temporarily converting old API to new API
-    const content = computed(() => {
-      return compability__1_0_0__2_0_0(props.contentProp)
-    })
+    const content = ref(props.contentProp)
 
     const sanitizedId = computed(() => {
       const strArr = content.value.id.split('_')

@@ -101,9 +101,7 @@ export default defineComponent({
     })
       .then((response) => response.json())
       .then((data) => {
-        this.galleryData = (data as any).sections !== undefined
-          ? (data as any).sections
-          : (data as any).content
+        this.galleryData = (data as any).content
         this.shouldRender = true
       })
   },
