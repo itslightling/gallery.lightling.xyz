@@ -167,7 +167,6 @@ import SocialIconLink from '~/components/shared/SocialIconLink.vue'
 import {
   About, Social, Utility,
 } from '~/content/Home'
-import Gallery from '~/components/Gallery/Gallery.vue'
 
 import Defines from '~/defines'
 
@@ -212,12 +211,6 @@ export default defineComponent({
         this.backgroundImage = `${Defines.galleryDataLocation}/${data.featured[i].img}`
         this.backgroundPosition = data.featured[i].position
         this.galleries = data.content
-        this.galleries.forEach((gallery: any) => {
-          this.$router.addRoute({
-            path: `/gallery/${gallery.id}`,
-            component: Gallery,
-          })
-        })
       })
     if (this.$store.state.store.darkMode) {
       document.body.classList.add('dark')
