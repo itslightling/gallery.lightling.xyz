@@ -20,7 +20,7 @@ a
     outline-color: $brand-dark-a !important
 button
   &:hover
-    outline-color: lighten($brand-dark-a, 50%) !important
+    opacity: 0.5
 
 h1,
 h2,
@@ -87,6 +87,11 @@ a
 .dark
   background-color: $brand-dark-b
   color: $brand-faint-a
+  button,
+  a
+    &:focus,
+    &:active
+      outline-color: $brand-bright-a !important
   a
     color: $brand-medium-a
     &::after
