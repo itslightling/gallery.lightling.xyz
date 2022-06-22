@@ -167,6 +167,7 @@ import SocialIconLink from '~/components/shared/SocialIconLink.vue'
 import {
   About, Social, Utility,
 } from '~/content/Home'
+import Gallery from '~/components/Gallery/Gallery.vue'
 
 import Defines from '~/defines'
 
@@ -211,43 +212,30 @@ export default defineComponent({
         this.backgroundImage = `${Defines.galleryDataLocation}/${data.featured[i].img}`
         this.backgroundPosition = data.featured[i].position
         this.galleries = data.content
+        this.galleries.forEach((gallery: any) => {
+          this.$router.addRoute({
+            path: `/gallery/${gallery.id}`,
+            component: Gallery,
+          })
+        })
       })
   },
   methods: {
     disablePopup () {
       this.popupActive = false
     },
-    setAndWarn (title: string) {
-      this.currentTarget = title
+    setAndWarn (id: string) {
+      this.currentTarget = id
       this.popupActive = true
     },
-    setAndGo (title: string) {
-      this.currentTarget = title
+    setAndGo (id: string) {
+      this.currentTarget = id
       this.goToGallery()
     },
     goToGallery () {
-      switch (this.currentTarget) {
-        case 'traditional':
-          this.$router.push({
-            path: 'gallery/traditional',
-          })
-          break
-        case 'digital':
-          this.$router.push({
-            path: 'gallery/digital',
-          })
-          break
-        case 'photography':
-          this.$router.push({
-            path: 'gallery/photo',
-          })
-          break
-        case 'anthro':
-          this.$router.push({
-            path: 'gallery/anthro',
-          })
-          break
-      }
+      this.$router.push({
+        path: `/gallery/${this.currentTarget}`,
+      })
     },
   },
 })
