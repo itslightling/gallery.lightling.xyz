@@ -104,6 +104,11 @@ export default defineComponent({
         this.galleryData = (data as any).content
         this.shouldRender = true
       })
+    if (this.$store.state.store.darkMode) {
+      document.body.classList.add('dark')
+    } else {
+      document.body.classList.remove('dark')
+    }
   },
 })
 </script>
