@@ -21,25 +21,13 @@
         id="galleries"
         class="links"
       >
-        <!--
-          TODO: Update API to allow for dynamic linking of galleries;
-          essentially an index.json to match with gallery index.html (Home.vue)
-        -->
         <GalleryLink
-          element="traditional"
-          @click="setAndGo('traditional')"
-        />
-        <GalleryLink
-          element="digital"
-          @click="setAndWarn('digital')"
-        />
-        <GalleryLink
-          element="photography"
-          @click="setAndGo('photography')"
-        />
-        <GalleryLink
-          element="anthro"
-          @click="setAndWarn('anthro')"
+          v-for="(gallery, i) in galleries"
+          :key="`gallery_${i}`"
+          :gallery="gallery"
+          @click="gallery.warn
+            ? setAndWarn(gallery.id)
+            : setAndGo(gallery.id)"
         />
         <GalleryLinkWarning
           v-if="popupActive"
@@ -210,6 +198,7 @@ export default defineComponent({
     return {
       backgroundImage: '',
       backgroundPosition: 'center center',
+      galleries: [],
     }
   },
   mounted () {
@@ -221,7 +210,7 @@ export default defineComponent({
         const i = Math.floor(Math.random() * data.featured.length)
         this.backgroundImage = `${Defines.galleryDataLocation}/${data.featured[i].img}`
         this.backgroundPosition = data.featured[i].position
-        console.log(this.backgroundImage)
+        this.galleries = data.content
       })
   },
   methods: {
