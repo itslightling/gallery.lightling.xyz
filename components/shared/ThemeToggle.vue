@@ -15,6 +15,7 @@ button
   border: none
   background-color: transparent
   cursor: pointer
+  border-radius: 50%
   &::after
     content: ""
     position: absolute
