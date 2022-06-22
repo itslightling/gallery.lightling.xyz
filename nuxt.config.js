@@ -68,7 +68,7 @@ export default {
 
   generate: {
     crawler: true,
-    fallback: true,
+    fallback: 'not_found.html',
     routes: [
       '/',
     ],
