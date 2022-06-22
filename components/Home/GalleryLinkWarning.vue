@@ -64,6 +64,11 @@
       border-radius: $mtl-round
       background-color: #53707e
       color: #ffe0e8
+
+@media screen and (orientation: portrait)
+  .warning
+    left: 1rem
+    transform: translate(-0.5rem, -50%)
 </style>
 
 <script lang="ts">
