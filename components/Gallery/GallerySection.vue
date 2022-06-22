@@ -80,6 +80,18 @@ h5
 @media screen and (orientation: portrait)
   .grid
     grid-template-columns: repeat(2, 1fr)
+
+@media screen and (max-aspect-ratio: 3/5)
+  .grid
+    grid-template-columns: repeat(1, 1fr)
+
+@media screen and (max-width: 800px)
+  h3,
+  h4,
+  h5,
+  h6,
+  .grid
+    margin-right: 0
 </style>
 
 <script lang="ts">
