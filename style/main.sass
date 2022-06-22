@@ -100,3 +100,17 @@ a
   .general-container
     &.with-background
       background-color: $brand-dark-a
+
+@media screen and (max-width: 500px)
+  .general-container
+    margin: calc($mtl-pad)
+    &.with-background
+      padding: calc($mtl-pad)
+      border-radius: calc($mtl-round)
+
+@media screen and (max-width: 400px)
+  .general-container
+    margin: calc($mtl-pad / 2)
+    &.with-background
+      padding: calc($mtl-pad / 2)
+      border-radius: calc($mtl-round / 2)
