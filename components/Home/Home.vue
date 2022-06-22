@@ -3,7 +3,12 @@
     class="content"
     :style="`background-image: url(${backgroundImage}); background-position: ${backgroundPosition}`"
   >
-    <main>
+    <div
+      class="filter fixed"
+    />
+    <main
+      class="fixed"
+    >
       <div
         id="avatar"
       >
@@ -81,30 +86,22 @@
   height: 100vh
   width: 100vw
   overflow: hidden
-  main
+  .fixed
     position: fixed
-    background-color: transparentize($brand-light-a, 0.5)
-    right: 0
     top: 0
+    right: 0
     bottom: 0
     width: 36rem
+    background-color: transparentize($brand-light-a, 0.5)
+  .filter
+    backdrop-filter: blur(8px) brightness(40%)
+  main
     overflow-y: scroll
     display: grid
     justify-items: center
     align-items: center
     grid-gap: calc($mtl-pad * 2)
     padding: calc($mtl-pad * 2) 0
-    &::before
-      content: ""
-      position: absolute
-      background-color: black
-      top: 0
-      bottom: 0
-      left: 0
-      right: 0
-      z-index: -99
-      background-color: transparentize($brand-light-a, 0.5)
-      backdrop-filter: blur(8px) brightness(40%)
     #avatar
       position: relative
       background-image: url('/images/v1-official.svg')
@@ -144,14 +141,12 @@
 .dark
   .content
     background-color: $brand-dark-a
-    main
+    .fixed
       background-color: transparentize($brand-dark-a, 0.5)
-      &::before
-        background-color: transparentize($brand-dark-a, 0.5)
 
 @media screen and (orientation: portrait)
   .content
-    main
+    .fixed
       width: 90vw
       padding: 0 1rem
       left: calc(5vw - 1rem)
@@ -162,7 +157,7 @@
 
 @media screen and (max-width: 420px)
   .content
-    main
+    .fixed
       width: 95vw
       left: calc(2.5vw - 1rem)
       right: calc(2.5vw - 1rem)
