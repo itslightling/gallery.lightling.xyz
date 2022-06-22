@@ -162,8 +162,9 @@
       left: calc(2.5vw - 1rem)
       right: calc(2.5vw - 1rem)
       #social
-        grid-template-columns: repeat(3, 1fr)
+        grid-template-columns: repeat(3, 6rem)
         width: 100%
+        justify-content: center
 </style>
 
 <script lang="ts" setup>
