@@ -67,6 +67,11 @@ export default {
   },
 
   generate: {
-    routes: ['/'],
+    crawler: true,
+    fallback: true,
+    routes: [
+      '/',
+      '/gallery',
+    ],
   },
 }
