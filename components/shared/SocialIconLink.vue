@@ -45,7 +45,7 @@ a
 
 @media screen and (max-width: 420px)
   a
-    width: unset
+    width: 4rem
     span
       display: none
 </style>

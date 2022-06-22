@@ -1,8 +1,14 @@
 <template>
   <div
     class="content"
+    :style="`background-image: url(${backgroundImage}); background-position: ${backgroundPosition}`"
   >
-    <main>
+    <div
+      class="filter fixed"
+    />
+    <main
+      class="fixed"
+    >
       <div
         id="avatar"
       >
@@ -15,25 +21,13 @@
         id="galleries"
         class="links"
       >
-        <!--
-          TODO: Update API to allow for dynamic linking of galleries;
-          essentially an index.json to match with gallery index.html (Home.vue)
-        -->
         <GalleryLink
-          element="traditional"
-          @click="setAndGo('traditional')"
-        />
-        <GalleryLink
-          element="digital"
-          @click="setAndWarn('digital')"
-        />
-        <GalleryLink
-          element="photography"
-          @click="setAndGo('photography')"
-        />
-        <GalleryLink
-          element="anthro"
-          @click="setAndWarn('anthro')"
+          v-for="(gallery, i) in galleries"
+          :key="`gallery_${i}`"
+          :gallery="gallery"
+          @click="gallery.warn
+            ? setAndWarn(gallery.id)
+            : setAndGo(gallery.id)"
         />
         <GalleryLinkWarning
           v-if="popupActive"
@@ -75,19 +69,21 @@
 @import 'style/variables.sass'
 
 .content
-  background-image: url('/images/home/photography.jpg')
+  background-color: $brand-light-a
   background-size: cover
-  background-position: center center
   height: 100vh
   width: 100vw
   overflow: hidden
-  main
-    background-color: $brand-light-a
+  .fixed
     position: fixed
-    right: 0
     top: 0
+    right: 0
     bottom: 0
     width: 36rem
+    background-color: transparentize($brand-light-a, 0.5)
+  .filter
+    backdrop-filter: blur(8px) brightness(40%)
+  main
     overflow-y: scroll
     display: grid
     justify-items: center
@@ -132,12 +128,13 @@
         margin: calc($mtl-pad * 2) auto
 .dark
   .content
-    main
-      background-color: $brand-dark-a
+    background-color: $brand-dark-a
+    .fixed
+      background-color: transparentize($brand-dark-a, 0.5)
 
 @media screen and (orientation: portrait)
   .content
-    main
+    .fixed
       width: 90vw
       padding: 0 1rem
       left: calc(5vw - 1rem)
@@ -148,13 +145,14 @@
 
 @media screen and (max-width: 420px)
   .content
-    main
+    .fixed
       width: 95vw
       left: calc(2.5vw - 1rem)
       right: calc(2.5vw - 1rem)
       #social
-        grid-template-columns: repeat(3, 1fr)
+        grid-template-columns: repeat(3, 6rem)
         width: 100%
+        justify-content: center
 </style>
 
 <script lang="ts" setup>
@@ -169,6 +167,8 @@ import SocialIconLink from '~/components/shared/SocialIconLink.vue'
 import {
   About, Social, Utility,
 } from '~/content/Home'
+
+import Defines from '~/defines'
 
 Vue.use(VueCompositionAPI)
 
@@ -194,41 +194,46 @@ export default defineComponent({
       popupActive,
     }
   },
+  data () {
+    return {
+      backgroundImage: '',
+      backgroundPosition: 'center center',
+      galleries: [],
+    }
+  },
+  mounted () {
+    fetch(`${Defines.galleryDataIndexLocation}`, {
+      mode: 'cors',
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const i = Math.floor(Math.random() * data.featured.length)
+        this.backgroundImage = `${Defines.galleryDataLocation}/${data.featured[i].img}`
+        this.backgroundPosition = data.featured[i].position
+        this.galleries = data.content
+      })
+    if (this.$store.state.store.darkMode) {
+      document.body.classList.add('dark')
+    } else {
+      document.body.classList.remove('dark')
+    }
+  },
   methods: {
     disablePopup () {
       this.popupActive = false
     },
-    setAndWarn (title: string) {
-      this.currentTarget = title
+    setAndWarn (id: string) {
+      this.currentTarget = id
       this.popupActive = true
     },
-    setAndGo (title: string) {
-      this.currentTarget = title
+    setAndGo (id: string) {
+      this.currentTarget = id
       this.goToGallery()
     },
     goToGallery () {
-      switch (this.currentTarget) {
-        case 'traditional':
-          this.$router.push({
-            path: 'gallery/traditional',
-          })
-          break
-        case 'digital':
-          this.$router.push({
-            path: 'gallery/digital',
-          })
-          break
-        case 'photography':
-          this.$router.push({
-            path: 'gallery/photo',
-          })
-          break
-        case 'anthro':
-          this.$router.push({
-            path: 'gallery/anthro',
-          })
-          break
-      }
+      this.$router.push({
+        path: `/gallery/${this.currentTarget}`,
+      })
     },
   },
 })

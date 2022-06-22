@@ -20,30 +20,4 @@ describe('createRouter', () => {
     expect(el).toBeTruthy()
     expect(el.component.name).toBe('Home')
   })
-  test('has digital route', () => {
-    const el = wrapper.options.routes.find(
-      (el) => el.path === '/gallery/digital',
-    )
-    expect(el).toBeTruthy()
-    expect(el.component.name).toBe('Gallery')
-  })
-  test('has anthro route', () => {
-    const el = wrapper.options.routes.find(
-      (el) => el.path === '/gallery/anthro',
-    )
-    expect(el).toBeTruthy()
-    expect(el.component.name).toBe('Gallery')
-  })
-  test('has photo route', () => {
-    const el = wrapper.options.routes.find((el) => el.path === '/gallery/photo')
-    expect(el).toBeTruthy()
-    expect(el.component.name).toBe('Gallery')
-  })
-  test('has traditional route', () => {
-    const el = wrapper.options.routes.find(
-      (el) => el.path === '/gallery/traditional',
-    )
-    expect(el).toBeTruthy()
-    expect(el.component.name).toBe('Gallery')
-  })
 })

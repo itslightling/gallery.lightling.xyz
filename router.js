@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Home from '~/components/Home/Home'
-import Gallery from '~/components/Gallery/Gallery'
+import Gallery from '~/components/Gallery/Gallery.vue'
 
 Vue.use(Router)
 
@@ -22,19 +22,7 @@ export function createRouter () {
         component: Home,
       },
       {
-        path: '/gallery/digital',
-        component: Gallery,
-      },
-      {
-        path: '/gallery/traditional',
-        component: Gallery,
-      },
-      {
-        path: '/gallery/photo',
-        component: Gallery,
-      },
-      {
-        path: '/gallery/anthro',
+        path: '/gallery/:target',
         component: Gallery,
       },
     ],

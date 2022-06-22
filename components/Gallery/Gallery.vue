@@ -94,18 +94,21 @@ export default defineComponent({
     }
   },
   mounted () {
-    const route = this.$route.path.replace('/gallery/', '')
-    this.title = route.charAt(0).toUpperCase() + route.slice(1)
+    const route = this.$route.params.target
     fetch(`${Defines.galleryDataLocation}/${route}.json`, {
       mode: 'cors',
     })
       .then((response) => response.json())
       .then((data) => {
-        this.galleryData = (data as any).sections !== undefined
-          ? (data as any).sections
-          : (data as any).content
+        this.galleryData = (data as any).content
+        this.title = (data as any).title || (data as any).id
         this.shouldRender = true
       })
+    if (this.$store.state.store.darkMode) {
+      document.body.classList.add('dark')
+    } else {
+      document.body.classList.remove('dark')
+    }
   },
 })
 </script>

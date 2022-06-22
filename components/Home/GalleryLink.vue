@@ -1,14 +1,17 @@
 <template>
   <button
-    :id="element"
-    :style="{ 'background-image': 'url(/images/home/' + element + '.jpg)' }"
-    @click="$emit('click', element)"
+    :id="gallery.id"
+    :style="`background-image: url(${imageDataPath}/${gallery.preview})`"
+    @click="$emit('click', gallery.id)"
   >
-    <span
-      tabindex="-1"
-    >
-      {{ element }}
-    </span>
+    <div>
+      <span
+        tabindex="-1"
+        v-html="gallery.title"
+      >
+        {{ gallery.title }}
+      </span>
+    </div>
   </button>
 </template>
 
@@ -21,12 +24,13 @@ button
   background-repeat: no-repeat
   background-size: cover
   border-radius: $mtl-round
-  span
-    font-size: 2rem
-    background-color: #000a
-    color: $brand-light-a
-    padding: 1rem
+  div
     border-radius: $mtl-round
+    background-color: #000a
+    padding: 1rem
+    span
+      font-size: 2rem
+      color: $brand-light-a
 </style>
 
 <script lang="ts">
@@ -34,28 +38,25 @@ import Vue from 'vue'
 import VueCompositionAPI, {
   defineComponent,
   ref,
-  computed,
 } from '@vue/composition-api'
+
+import Defines from '~/defines'
 
 Vue.use(VueCompositionAPI)
 
 export default defineComponent({
   name: 'GalleryLink',
   props: {
-    element: {
-      type: String,
+    gallery: {
+      type: Object,
       required: true,
     },
   },
-  setup (props: any) {
-    const element = ref(props.element)
-
-    const imageURL = computed(() => {
-      return `url(/images/${element})`
-    })
+  setup () {
+    const imageDataPath = ref(Defines.galleryDataLocation)
 
     return {
-      imageURL,
+      imageDataPath,
     }
   },
 })

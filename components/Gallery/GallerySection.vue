@@ -80,17 +80,25 @@ h5
 @media screen and (orientation: portrait)
   .grid
     grid-template-columns: repeat(2, 1fr)
+
+@media screen and (max-aspect-ratio: 3/5)
+  .grid
+    grid-template-columns: repeat(1, 1fr)
+
+@media screen and (max-width: 800px)
+  h3,
+  h4,
+  h5,
+  h6,
+  .grid
+    margin-right: 0
 </style>
 
 <script lang="ts">
 import {
-  defineComponent, computed,
+  defineComponent, ref, computed,
 } from '@vue/composition-api'
 import GalleryElement from './GalleryElement.vue'
-import {
-  // eslint-disable-next-line camelcase
-  compability__1_0_0__2_0_0,
-} from '~/utilities/compatibility'
 import {
   map,
 } from '~/utilities/transform'
@@ -112,10 +120,7 @@ export default defineComponent({
     },
   },
   setup (props: any) {
-    // temporarily converting old API to new API
-    const content = computed(() => {
-      return compability__1_0_0__2_0_0(props.contentProp)
-    })
+    const content = ref(props.contentProp)
 
     const sanitizedId = computed(() => {
       const strArr = content.value.id.split('_')

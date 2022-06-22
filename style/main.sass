@@ -15,12 +15,13 @@ a
   border: none !important
   outline: 0.25rem solid #0000 !important
   transition: $mtl-transition
+  cursor: pointer
   &:focus,
   &:active
     outline-color: $brand-dark-a !important
 button
   &:hover
-    outline-color: lighten($brand-dark-a, 50%) !important
+    opacity: 0.5
 
 h1,
 h2,
@@ -30,6 +31,7 @@ h5,
 h6
   font-family: 'Dosis', Georgia, serif
   margin: 0
+  text-transform: capitalize
 
 h1,
 h3,
@@ -87,6 +89,11 @@ a
 .dark
   background-color: $brand-dark-b
   color: $brand-faint-a
+  button,
+  a
+    &:focus,
+    &:active
+      outline-color: $brand-bright-a !important
   a
     color: $brand-medium-a
     &::after
@@ -94,3 +101,17 @@ a
   .general-container
     &.with-background
       background-color: $brand-dark-a
+
+@media screen and (max-width: 500px)
+  .general-container
+    margin: calc($mtl-pad)
+    &.with-background
+      padding: calc($mtl-pad)
+      border-radius: calc($mtl-round)
+
+@media screen and (max-width: 400px)
+  .general-container
+    margin: calc($mtl-pad / 2)
+    &.with-background
+      padding: calc($mtl-pad / 2)
+      border-radius: calc($mtl-round / 2)
