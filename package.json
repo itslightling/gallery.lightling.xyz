@@ -1,6 +1,6 @@
 {
   "name": "lightgallery",
-  "version": "4.0.0-rc3",
+  "version": "4.0.0",
   "private": true,
   "scripts": {
     "dev": "nuxt",
