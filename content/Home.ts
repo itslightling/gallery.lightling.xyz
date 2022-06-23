@@ -6,6 +6,10 @@ export const About = [
   'which is hosted externally. ' +
   'Various galleries may have a different focus between themselves, ' +
   'so I have unified them here. ',
+
+  'This site is currently hosted through Neocities ' +
+  'and built with Nuxt on <a href="https://github.com/xLightling/gallery.lightling.xyz">Github</a>. ' +
+  'Its components are open source. ',
 ]
 
 export const Social = [
