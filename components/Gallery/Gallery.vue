@@ -35,8 +35,14 @@
     height: calc(100vh - ($mtl-round * 8) - ($font-h1 * 2))
 
 @media screen and (max-width: 800px)
-  .gallery-nav
-    display: none
+  .main
+    .gallery-nav
+      display: none
+
+@media screen and (max-width: 500px)
+  .main
+    .gallery
+      height: calc(100vh - ($mtl-round * 4) - ($font-h1 * 1.5))
 </style>
 
 <script lang="ts">
