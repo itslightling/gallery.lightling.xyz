@@ -8,7 +8,7 @@ export const About = [
   'so I have unified them here. ',
 
   'This site is currently hosted through Neocities ' +
-  'and built with Nuxt on <a href="https://github.com/xLightling/gallery.lightling.xyz">Github</a>. ' +
+  'and built with Nuxt on <a href="https://github.com/itslightling/gallery.lightling.xyz">Github</a>. ' +
   'Its components are open source. ',
 ]
 
